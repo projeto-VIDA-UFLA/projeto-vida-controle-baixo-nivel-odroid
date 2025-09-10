@@ -1,0 +1,9 @@
+[35m[1mConsolidate compiler generated dependencies of target control[0m
+[35m[1mConsolidate compiler generated dependencies of target sensors[0m
+[35m[1mConsolidate compiler generated dependencies of target send_data_control[0m
+[  9%] [32mBuilding CXX object CMakeFiles/send_data_control.dir/src/SendDataControl/SendDataControl.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/control.dir/src/Control/Control.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/sensors.dir/src/Sensors/Sensors.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/record.dir/src/Record/Record.cpp.o[0m
+[ 45%] [32m[1mLinking CXX executable record[0m
+[ 45%] Built target record

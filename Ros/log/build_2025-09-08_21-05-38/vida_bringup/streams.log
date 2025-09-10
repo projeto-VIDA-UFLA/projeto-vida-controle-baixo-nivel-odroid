@@ -1,0 +1,27 @@
+[0.041s] Invoking command in '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup -- -j6 -l6
+[0.299s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.787s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.096s] -- Configuring done
+[1.108s] -- Generating done
+[1.111s] -- Build files have been written to: /home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup
+[1.175s] Invoked command in '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup -- -j6 -l6
+[1.250s] Invoking command in '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup
+[1.271s] -- Install configuration: ""
+[1.275s] -- Execute custom install script
+[1.275s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/launch/plataforma_vida_app.launch.py
+[1.275s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/ament_index/resource_index/package_run_dependencies/vida_bringup
+[1.276s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/ament_index/resource_index/parent_prefix_path/vida_bringup
+[1.276s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/environment/ament_prefix_path.sh
+[1.276s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/environment/ament_prefix_path.dsv
+[1.277s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/environment/path.sh
+[1.278s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/environment/path.dsv
+[1.278s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/local_setup.bash
+[1.279s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/local_setup.sh
+[1.279s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/local_setup.zsh
+[1.279s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/local_setup.dsv
+[1.280s] -- Symlinking: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/package.dsv
+[1.311s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/ament_index/resource_index/packages/vida_bringup
+[1.313s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/cmake/vida_bringupConfig.cmake
+[1.314s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/cmake/vida_bringupConfig-version.cmake
+[1.315s] -- Up-to-date symlink: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup/share/vida_bringup/package.xml
+[1.321s] Invoked command in '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup

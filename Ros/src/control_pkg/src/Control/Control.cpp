@@ -2,9 +2,8 @@
 
 Control::Control(string name) : Node(name)
 {
-    motorSerial = new Serial("ttyS1");
-    subscriber = this->create_subscription<vida_interfaces::msg::Controls>("controls_data", 10, bind(&Control::callbackControls, this, _1));
-    RCLCPP_INFO(this->get_logger(), "control has been started");
+    subscriber = this->create_subscription<vida_interfaces::msg::Controls>("/setpoint/speed", 10, bind(&Control::callbackControls, this, _1));
+    RCLCPP_INFO(this->get_logger(), "control speed has been started");
 }
 
 Control::~Control()

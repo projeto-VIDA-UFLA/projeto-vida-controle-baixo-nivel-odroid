@@ -7,5 +7,6 @@
 #include "vida_interfaces/msg/detail/sensor_datas__struct.hpp"
 #include "vida_interfaces/msg/detail/sensor_datas__builder.hpp"
 #include "vida_interfaces/msg/detail/sensor_datas__traits.hpp"
+#include "vida_interfaces/msg/detail/sensor_datas__type_support.hpp"
 
 #endif  // VIDA_INTERFACES__MSG__SENSOR_DATAS_HPP_

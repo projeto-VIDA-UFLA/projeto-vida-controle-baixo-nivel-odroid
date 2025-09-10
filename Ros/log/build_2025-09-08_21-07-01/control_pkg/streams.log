@@ -1,0 +1,37 @@
+[0.025s] Invoking command in '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg': AMENT_PREFIX_PATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg -- -j6 -l6
+[0.082s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.531s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.609s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.617s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.635s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.670s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.705s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.796s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.800s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.018s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.169s] -- Found vida_interfaces: 0.0.0 (/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/share/vida_interfaces/cmake)
+[1.434s] -- Configuring done
+[1.440s] [31mCMake Error at CMakeLists.txt:17 (add_executable):
+[1.441s]   Cannot find source file:
+[1.441s] 
+[1.442s]     ../../../Utils/road_time.h
+[1.447s] 
+[1.448s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+[1.449s]   .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+[1.455s] 
+[1.456s] [0m
+[1.457s] [31mCMake Error at CMakeLists.txt:17 (add_executable):
+[1.458s]   No SOURCES given to target: control
+[1.463s] 
+[1.464s] [0m
+[1.464s] [31mCMake Error at CMakeLists.txt:40 (add_executable):
+[1.464s]   No SOURCES given to target: sensors
+[1.464s] 
+[1.465s] [0m
+[1.465s] [31mCMake Error at CMakeLists.txt:65 (add_executable):
+[1.465s]   No SOURCES given to target: send_data_control
+[1.465s] 
+[1.465s] [0m
+[1.466s] [0mCMake Generate step failed.  Build files cannot be regenerated correctly.[0m
+[1.466s] gmake: *** [Makefile:379: cmake_check_build_system] Erro 1
+[1.469s] Invoked command in '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg' returned '2': AMENT_PREFIX_PATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg -- -j6 -l6

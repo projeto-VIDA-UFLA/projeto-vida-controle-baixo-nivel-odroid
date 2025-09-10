@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg
 # The main recursive "all" target.
 all: CMakeFiles/control.dir/all
 all: CMakeFiles/sensors.dir/all
+all: CMakeFiles/send_data_control.dir/all
 all: CMakeFiles/record.dir/all
 .PHONY : all
 
@@ -77,6 +78,7 @@ clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/control_pkg_uninstall.dir/clean
 clean: CMakeFiles/control.dir/clean
 clean: CMakeFiles/sensors.dir/clean
+clean: CMakeFiles/send_data_control.dir/clean
 clean: CMakeFiles/record.dir/clean
 .PHONY : clean
 
@@ -165,7 +167,7 @@ CMakeFiles/control.dir/clean:
 CMakeFiles/sensors.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensors.dir/build.make CMakeFiles/sensors.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensors.dir/build.make CMakeFiles/sensors.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg/CMakeFiles --progress-num=6,7,8 "Built target sensors"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg/CMakeFiles --progress-num=9,10,11 "Built target sensors"
 .PHONY : CMakeFiles/sensors.dir/all
 
 # Build rule for subdir invocation for target.
@@ -183,6 +185,32 @@ sensors: CMakeFiles/sensors.dir/rule
 CMakeFiles/sensors.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensors.dir/build.make CMakeFiles/sensors.dir/clean
 .PHONY : CMakeFiles/sensors.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/send_data_control.dir
+
+# All Build rule for target.
+CMakeFiles/send_data_control.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg/CMakeFiles --progress-num=6,7,8 "Built target send_data_control"
+.PHONY : CMakeFiles/send_data_control.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/send_data_control.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/send_data_control.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg/CMakeFiles 0
+.PHONY : CMakeFiles/send_data_control.dir/rule
+
+# Convenience name for target.
+send_data_control: CMakeFiles/send_data_control.dir/rule
+.PHONY : send_data_control
+
+# clean rule for target.
+CMakeFiles/send_data_control.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/clean
+.PHONY : CMakeFiles/send_data_control.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/record.dir

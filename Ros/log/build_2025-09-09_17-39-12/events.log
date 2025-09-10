@@ -1,0 +1,390 @@
+[0.000000] (-) TimerEvent: {}
+[0.000819] (-) JobUnselected: {'identifier': 'vida_bringup'}
+[0.001528] (-) JobUnselected: {'identifier': 'vida_interfaces'}
+[0.001951] (control_pkg) JobQueued: {'identifier': 'control_pkg', 'dependencies': OrderedDict([('vida_interfaces', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces')])}
+[0.002482] (control_pkg) JobStarted: {'identifier': 'control_pkg'}
+[0.030037] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'cmake'}
+[0.031827] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'build'}
+[0.033832] (control_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg', '--', '-j6', '-l6'], 'cwd': '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'pt_BR:pt:pt_PT:en'), ('USER', 'odroid'), ('SSH_CLIENT', 'fe80::bb53:6347:f4fe:7e80%eth0 52961 22'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/odroid'), ('OLDPWD', '/home/odroid'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('UBUNTU_MENUPROXY', '1'), ('COLCON_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'odroid'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '5'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'a4'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('media_arm_audio_decoder', 'ape,flac,dts,ac3,eac3,wma,wmapro,mp3,aac,aac_latm,vorbis,raac,cook,amr,pcm,adpcm'), ('LANG', 'pt_BR.UTF-8'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('PWD', '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg'), ('SSH_CONNECTION', 'fe80::bb53:6347:f4fe:7e80%eth0 52961 fe80::57b7:8357:94a1:353a%eth0 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('media_libplayer_modules', 'libcurl_mod.so,libdash_mod.so,libvhls_mod.so'), ('CMAKE_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup:/opt/ros/humble')]), 'shell': False}
+[0.099202] (-) TimerEvent: {}
+[0.200259] (-) TimerEvent: {}
+[0.232001] (control_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target send_data_control\x1b[0m\n'}
+[0.267828] (control_pkg) StdoutLine: {'line': b'[ 27%] Built target control\n'}
+[0.274788] (control_pkg) StdoutLine: {'line': b'[ 45%] Built target record\n'}
+[0.279617] (control_pkg) StdoutLine: {'line': b'[ 72%] Built target sensors\n'}
+[0.300506] (-) TimerEvent: {}
+[0.304993] (control_pkg) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/send_data_control.dir/src/SendDataControl/SendDataControl.cpp.o\x1b[0m\n'}
+[0.400672] (-) TimerEvent: {}
+[0.501316] (-) TimerEvent: {}
+[0.602013] (-) TimerEvent: {}
+[0.702665] (-) TimerEvent: {}
+[0.804371] (-) TimerEvent: {}
+[0.905120] (-) TimerEvent: {}
+[1.005897] (-) TimerEvent: {}
+[1.106664] (-) TimerEvent: {}
+[1.207357] (-) TimerEvent: {}
+[1.308105] (-) TimerEvent: {}
+[1.408751] (-) TimerEvent: {}
+[1.509382] (-) TimerEvent: {}
+[1.610048] (-) TimerEvent: {}
+[1.710691] (-) TimerEvent: {}
+[1.811314] (-) TimerEvent: {}
+[1.912005] (-) TimerEvent: {}
+[2.012652] (-) TimerEvent: {}
+[2.113312] (-) TimerEvent: {}
+[2.213955] (-) TimerEvent: {}
+[2.314622] (-) TimerEvent: {}
+[2.415295] (-) TimerEvent: {}
+[2.515968] (-) TimerEvent: {}
+[2.616607] (-) TimerEvent: {}
+[2.717238] (-) TimerEvent: {}
+[2.817861] (-) TimerEvent: {}
+[2.918514] (-) TimerEvent: {}
+[3.019163] (-) TimerEvent: {}
+[3.119807] (-) TimerEvent: {}
+[3.220534] (-) TimerEvent: {}
+[3.321306] (-) TimerEvent: {}
+[3.422260] (-) TimerEvent: {}
+[3.523108] (-) TimerEvent: {}
+[3.623824] (-) TimerEvent: {}
+[3.724554] (-) TimerEvent: {}
+[3.825300] (-) TimerEvent: {}
+[3.926061] (-) TimerEvent: {}
+[4.026779] (-) TimerEvent: {}
+[4.127478] (-) TimerEvent: {}
+[4.228266] (-) TimerEvent: {}
+[4.328994] (-) TimerEvent: {}
+[4.429637] (-) TimerEvent: {}
+[4.530290] (-) TimerEvent: {}
+[4.631003] (-) TimerEvent: {}
+[4.731655] (-) TimerEvent: {}
+[4.832382] (-) TimerEvent: {}
+[4.933099] (-) TimerEvent: {}
+[5.033808] (-) TimerEvent: {}
+[5.134488] (-) TimerEvent: {}
+[5.235229] (-) TimerEvent: {}
+[5.335998] (-) TimerEvent: {}
+[5.436750] (-) TimerEvent: {}
+[5.537480] (-) TimerEvent: {}
+[5.638205] (-) TimerEvent: {}
+[5.739001] (-) TimerEvent: {}
+[5.839823] (-) TimerEvent: {}
+[5.940579] (-) TimerEvent: {}
+[6.041201] (-) TimerEvent: {}
+[6.141854] (-) TimerEvent: {}
+[6.242541] (-) TimerEvent: {}
+[6.343176] (-) TimerEvent: {}
+[6.443817] (-) TimerEvent: {}
+[6.544459] (-) TimerEvent: {}
+[6.645123] (-) TimerEvent: {}
+[6.745827] (-) TimerEvent: {}
+[6.846479] (-) TimerEvent: {}
+[6.947114] (-) TimerEvent: {}
+[7.048567] (-) TimerEvent: {}
+[7.149360] (-) TimerEvent: {}
+[7.250202] (-) TimerEvent: {}
+[7.351010] (-) TimerEvent: {}
+[7.451728] (-) TimerEvent: {}
+[7.552410] (-) TimerEvent: {}
+[7.653096] (-) TimerEvent: {}
+[7.753829] (-) TimerEvent: {}
+[7.854535] (-) TimerEvent: {}
+[7.955330] (-) TimerEvent: {}
+[8.056383] (-) TimerEvent: {}
+[8.157036] (-) TimerEvent: {}
+[8.257681] (-) TimerEvent: {}
+[8.358302] (-) TimerEvent: {}
+[8.458970] (-) TimerEvent: {}
+[8.559597] (-) TimerEvent: {}
+[8.660256] (-) TimerEvent: {}
+[8.760894] (-) TimerEvent: {}
+[8.861521] (-) TimerEvent: {}
+[8.962174] (-) TimerEvent: {}
+[9.062805] (-) TimerEvent: {}
+[9.163438] (-) TimerEvent: {}
+[9.264125] (-) TimerEvent: {}
+[9.364763] (-) TimerEvent: {}
+[9.465396] (-) TimerEvent: {}
+[9.566029] (-) TimerEvent: {}
+[9.666832] (-) TimerEvent: {}
+[9.767805] (-) TimerEvent: {}
+[9.868550] (-) TimerEvent: {}
+[9.969498] (-) TimerEvent: {}
+[9.983509] (control_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/odroid/Documentos/Plataforma-VIDA/Ros/src/control_pkg/src/SendDataControl/SendDataControl.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kint SendDataControl::calculateCheckSum(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.984357] (control_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/odroid/Documentos/Plataforma-VIDA/Ros/src/control_pkg/src/SendDataControl/SendDataControl.cpp:58:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<char>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[9.984939] (control_pkg) StderrLine: {'line': b'   58 |     for (int i = 0; \x1b[01;35m\x1b[Ki < dado.length()\x1b[m\x1b[K; i++)\n'}
+[9.985458] (control_pkg) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.069899] (-) TimerEvent: {}
+[10.171369] (-) TimerEvent: {}
+[10.272159] (-) TimerEvent: {}
+[10.372891] (-) TimerEvent: {}
+[10.473645] (-) TimerEvent: {}
+[10.574293] (-) TimerEvent: {}
+[10.674991] (-) TimerEvent: {}
+[10.775777] (-) TimerEvent: {}
+[10.876611] (-) TimerEvent: {}
+[10.977620] (-) TimerEvent: {}
+[11.078670] (-) TimerEvent: {}
+[11.179386] (-) TimerEvent: {}
+[11.280140] (-) TimerEvent: {}
+[11.380883] (-) TimerEvent: {}
+[11.481685] (-) TimerEvent: {}
+[11.582421] (-) TimerEvent: {}
+[11.683286] (-) TimerEvent: {}
+[11.784194] (-) TimerEvent: {}
+[11.885512] (-) TimerEvent: {}
+[11.986583] (-) TimerEvent: {}
+[12.087849] (-) TimerEvent: {}
+[12.188667] (-) TimerEvent: {}
+[12.289557] (-) TimerEvent: {}
+[12.390518] (-) TimerEvent: {}
+[12.491212] (-) TimerEvent: {}
+[12.591977] (-) TimerEvent: {}
+[12.692702] (-) TimerEvent: {}
+[12.793898] (-) TimerEvent: {}
+[12.894641] (-) TimerEvent: {}
+[12.996113] (-) TimerEvent: {}
+[13.096860] (-) TimerEvent: {}
+[13.197999] (-) TimerEvent: {}
+[13.298823] (-) TimerEvent: {}
+[13.399706] (-) TimerEvent: {}
+[13.500575] (-) TimerEvent: {}
+[13.601515] (-) TimerEvent: {}
+[13.702417] (-) TimerEvent: {}
+[13.803269] (-) TimerEvent: {}
+[13.904111] (-) TimerEvent: {}
+[14.004988] (-) TimerEvent: {}
+[14.105844] (-) TimerEvent: {}
+[14.206563] (-) TimerEvent: {}
+[14.307325] (-) TimerEvent: {}
+[14.408137] (-) TimerEvent: {}
+[14.508913] (-) TimerEvent: {}
+[14.609778] (-) TimerEvent: {}
+[14.710671] (-) TimerEvent: {}
+[14.811468] (-) TimerEvent: {}
+[14.912466] (-) TimerEvent: {}
+[15.013182] (-) TimerEvent: {}
+[15.113893] (-) TimerEvent: {}
+[15.214620] (-) TimerEvent: {}
+[15.315373] (-) TimerEvent: {}
+[15.416125] (-) TimerEvent: {}
+[15.518198] (-) TimerEvent: {}
+[15.618947] (-) TimerEvent: {}
+[15.719728] (-) TimerEvent: {}
+[15.820735] (-) TimerEvent: {}
+[15.922095] (-) TimerEvent: {}
+[16.023175] (-) TimerEvent: {}
+[16.124647] (-) TimerEvent: {}
+[16.225340] (-) TimerEvent: {}
+[16.326089] (-) TimerEvent: {}
+[16.426796] (-) TimerEvent: {}
+[16.527462] (-) TimerEvent: {}
+[16.628159] (-) TimerEvent: {}
+[16.728783] (-) TimerEvent: {}
+[16.829407] (-) TimerEvent: {}
+[16.930033] (-) TimerEvent: {}
+[17.030660] (-) TimerEvent: {}
+[17.131313] (-) TimerEvent: {}
+[17.231977] (-) TimerEvent: {}
+[17.332600] (-) TimerEvent: {}
+[17.433220] (-) TimerEvent: {}
+[17.533869] (-) TimerEvent: {}
+[17.634510] (-) TimerEvent: {}
+[17.735154] (-) TimerEvent: {}
+[17.835821] (-) TimerEvent: {}
+[17.936456] (-) TimerEvent: {}
+[18.037099] (-) TimerEvent: {}
+[18.137763] (-) TimerEvent: {}
+[18.238410] (-) TimerEvent: {}
+[18.339083] (-) TimerEvent: {}
+[18.439762] (-) TimerEvent: {}
+[18.540406] (-) TimerEvent: {}
+[18.641036] (-) TimerEvent: {}
+[18.741637] (-) TimerEvent: {}
+[18.842233] (-) TimerEvent: {}
+[18.942819] (-) TimerEvent: {}
+[19.043423] (-) TimerEvent: {}
+[19.144062] (-) TimerEvent: {}
+[19.244696] (-) TimerEvent: {}
+[19.345340] (-) TimerEvent: {}
+[19.446022] (-) TimerEvent: {}
+[19.546657] (-) TimerEvent: {}
+[19.647286] (-) TimerEvent: {}
+[19.747939] (-) TimerEvent: {}
+[19.848592] (-) TimerEvent: {}
+[19.949223] (-) TimerEvent: {}
+[20.049858] (-) TimerEvent: {}
+[20.150489] (-) TimerEvent: {}
+[20.251124] (-) TimerEvent: {}
+[20.351818] (-) TimerEvent: {}
+[20.452511] (-) TimerEvent: {}
+[20.553163] (-) TimerEvent: {}
+[20.653822] (-) TimerEvent: {}
+[20.754502] (-) TimerEvent: {}
+[20.855234] (-) TimerEvent: {}
+[20.956060] (-) TimerEvent: {}
+[21.056695] (-) TimerEvent: {}
+[21.157340] (-) TimerEvent: {}
+[21.257976] (-) TimerEvent: {}
+[21.358633] (-) TimerEvent: {}
+[21.459287] (-) TimerEvent: {}
+[21.559961] (-) TimerEvent: {}
+[21.660596] (-) TimerEvent: {}
+[21.761233] (-) TimerEvent: {}
+[21.861896] (-) TimerEvent: {}
+[21.962496] (-) TimerEvent: {}
+[22.063154] (-) TimerEvent: {}
+[22.163806] (-) TimerEvent: {}
+[22.264441] (-) TimerEvent: {}
+[22.365077] (-) TimerEvent: {}
+[22.465712] (-) TimerEvent: {}
+[22.566366] (-) TimerEvent: {}
+[22.666998] (-) TimerEvent: {}
+[22.767625] (-) TimerEvent: {}
+[22.868283] (-) TimerEvent: {}
+[22.968939] (-) TimerEvent: {}
+[23.069575] (-) TimerEvent: {}
+[23.170226] (-) TimerEvent: {}
+[23.270856] (-) TimerEvent: {}
+[23.371506] (-) TimerEvent: {}
+[23.472477] (-) TimerEvent: {}
+[23.573125] (-) TimerEvent: {}
+[23.673760] (-) TimerEvent: {}
+[23.774397] (-) TimerEvent: {}
+[23.875031] (-) TimerEvent: {}
+[23.975703] (-) TimerEvent: {}
+[24.076331] (-) TimerEvent: {}
+[24.176981] (-) TimerEvent: {}
+[24.277623] (-) TimerEvent: {}
+[24.378262] (-) TimerEvent: {}
+[24.478890] (-) TimerEvent: {}
+[24.579527] (-) TimerEvent: {}
+[24.680186] (-) TimerEvent: {}
+[24.780822] (-) TimerEvent: {}
+[24.881461] (-) TimerEvent: {}
+[24.982108] (-) TimerEvent: {}
+[25.082767] (-) TimerEvent: {}
+[25.183427] (-) TimerEvent: {}
+[25.284082] (-) TimerEvent: {}
+[25.384717] (-) TimerEvent: {}
+[25.485344] (-) TimerEvent: {}
+[25.585973] (-) TimerEvent: {}
+[25.686609] (-) TimerEvent: {}
+[25.787238] (-) TimerEvent: {}
+[25.887877] (-) TimerEvent: {}
+[25.988511] (-) TimerEvent: {}
+[26.089155] (-) TimerEvent: {}
+[26.189794] (-) TimerEvent: {}
+[26.290437] (-) TimerEvent: {}
+[26.391279] (-) TimerEvent: {}
+[26.491973] (-) TimerEvent: {}
+[26.592633] (-) TimerEvent: {}
+[26.693304] (-) TimerEvent: {}
+[26.793939] (-) TimerEvent: {}
+[26.894583] (-) TimerEvent: {}
+[26.995235] (-) TimerEvent: {}
+[27.095963] (-) TimerEvent: {}
+[27.196623] (-) TimerEvent: {}
+[27.297263] (-) TimerEvent: {}
+[27.397905] (-) TimerEvent: {}
+[27.498548] (-) TimerEvent: {}
+[27.599190] (-) TimerEvent: {}
+[27.699820] (-) TimerEvent: {}
+[27.800452] (-) TimerEvent: {}
+[27.901096] (-) TimerEvent: {}
+[28.001720] (-) TimerEvent: {}
+[28.102364] (-) TimerEvent: {}
+[28.202984] (-) TimerEvent: {}
+[28.303634] (-) TimerEvent: {}
+[28.404289] (-) TimerEvent: {}
+[28.504969] (-) TimerEvent: {}
+[28.605665] (-) TimerEvent: {}
+[28.706325] (-) TimerEvent: {}
+[28.806989] (-) TimerEvent: {}
+[28.907577] (-) TimerEvent: {}
+[29.008197] (-) TimerEvent: {}
+[29.108809] (-) TimerEvent: {}
+[29.209411] (-) TimerEvent: {}
+[29.310015] (-) TimerEvent: {}
+[29.410621] (-) TimerEvent: {}
+[29.511281] (-) TimerEvent: {}
+[29.611983] (-) TimerEvent: {}
+[29.712593] (-) TimerEvent: {}
+[29.813197] (-) TimerEvent: {}
+[29.913811] (-) TimerEvent: {}
+[30.014438] (-) TimerEvent: {}
+[30.115087] (-) TimerEvent: {}
+[30.215695] (-) TimerEvent: {}
+[30.316299] (-) TimerEvent: {}
+[30.416912] (-) TimerEvent: {}
+[30.517514] (-) TimerEvent: {}
+[30.618118] (-) TimerEvent: {}
+[30.718732] (-) TimerEvent: {}
+[30.819341] (-) TimerEvent: {}
+[30.919967] (-) TimerEvent: {}
+[31.020585] (-) TimerEvent: {}
+[31.121207] (-) TimerEvent: {}
+[31.221830] (-) TimerEvent: {}
+[31.322435] (-) TimerEvent: {}
+[31.423050] (-) TimerEvent: {}
+[31.523677] (-) TimerEvent: {}
+[31.624323] (-) TimerEvent: {}
+[31.724998] (-) TimerEvent: {}
+[31.825664] (-) TimerEvent: {}
+[31.926309] (-) TimerEvent: {}
+[32.026907] (-) TimerEvent: {}
+[32.127522] (-) TimerEvent: {}
+[32.228205] (-) TimerEvent: {}
+[32.328857] (-) TimerEvent: {}
+[32.396182] (control_pkg) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable send_data_control\x1b[0m\n'}
+[32.429113] (-) TimerEvent: {}
+[32.530006] (-) TimerEvent: {}
+[32.630678] (-) TimerEvent: {}
+[32.731394] (-) TimerEvent: {}
+[32.832262] (-) TimerEvent: {}
+[32.933360] (-) TimerEvent: {}
+[33.034934] (-) TimerEvent: {}
+[33.135650] (-) TimerEvent: {}
+[33.236476] (-) TimerEvent: {}
+[33.337231] (-) TimerEvent: {}
+[33.438061] (-) TimerEvent: {}
+[33.538745] (-) TimerEvent: {}
+[33.639383] (-) TimerEvent: {}
+[33.740015] (-) TimerEvent: {}
+[33.840619] (-) TimerEvent: {}
+[33.941255] (-) TimerEvent: {}
+[34.041952] (-) TimerEvent: {}
+[34.142691] (-) TimerEvent: {}
+[34.243298] (-) TimerEvent: {}
+[34.281315] (control_pkg) StdoutLine: {'line': b'[100%] Built target send_data_control\n'}
+[34.324437] (control_pkg) CommandEnded: {'returncode': 0}
+[34.343551] (-) TimerEvent: {}
+[34.433137] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'install'}
+[34.443897] (-) TimerEvent: {}
+[34.464413] (control_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg'], 'cwd': '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'pt_BR:pt:pt_PT:en'), ('USER', 'odroid'), ('SSH_CLIENT', 'fe80::bb53:6347:f4fe:7e80%eth0 52961 22'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/odroid'), ('OLDPWD', '/home/odroid'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('UBUNTU_MENUPROXY', '1'), ('COLCON_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'odroid'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '5'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('PAPERSIZE', 'a4'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('media_arm_audio_decoder', 'ape,flac,dts,ac3,eac3,wma,wmapro,mp3,aac,aac_latm,vorbis,raac,cook,amr,pcm,adpcm'), ('LANG', 'pt_BR.UTF-8'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('PWD', '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg'), ('SSH_CONNECTION', 'fe80::bb53:6347:f4fe:7e80%eth0 52961 fe80::57b7:8357:94a1:353a%eth0 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('media_libplayer_modules', 'libcurl_mod.so,libdash_mod.so,libvhls_mod.so'), ('CMAKE_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg:/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_bringup:/opt/ros/humble')]), 'shell': False}
+[34.506076] (control_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[34.513301] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/lib/control_pkg/control\n'}
+[34.514203] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/lib/control_pkg/sensors\n'}
+[34.514986] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/lib/control_pkg/send_data_control\n'}
+[34.518359] (control_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/lib/control_pkg/send_data_control" to ""\n'}
+[34.521377] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/lib/control_pkg/record\n'}
+[34.521874] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/ament_index/resource_index/package_run_dependencies/control_pkg\n'}
+[34.522299] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/ament_index/resource_index/parent_prefix_path/control_pkg\n'}
+[34.522752] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/environment/ament_prefix_path.sh\n'}
+[34.523200] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/environment/ament_prefix_path.dsv\n'}
+[34.537592] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/environment/path.sh\n'}
+[34.538414] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/environment/path.dsv\n'}
+[34.539180] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/local_setup.bash\n'}
+[34.540205] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/local_setup.sh\n'}
+[34.540865] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/local_setup.zsh\n'}
+[34.542309] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/local_setup.dsv\n'}
+[34.542758] (control_pkg) StdoutLine: {'line': b'-- Installing: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/package.dsv\n'}
+[34.544090] (-) TimerEvent: {}
+[34.544647] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/ament_index/resource_index/packages/control_pkg\n'}
+[34.545225] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/cmake/control_pkgConfig.cmake\n'}
+[34.545961] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/cmake/control_pkgConfig-version.cmake\n'}
+[34.546323] (control_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/control_pkg/share/control_pkg/package.xml\n'}
+[34.546921] (control_pkg) CommandEnded: {'returncode': 0}
+[34.644314] (-) TimerEvent: {}
+[34.715204] (control_pkg) JobEnded: {'identifier': 'control_pkg', 'rc': 0}
+[34.721642] (-) EventReactorShutdown: {}

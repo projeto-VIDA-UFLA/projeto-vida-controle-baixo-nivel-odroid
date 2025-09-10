@@ -4,9 +4,11 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/vida_interfaces/msg/detail/controls__builder.hpp"
   "rosidl_generator_cpp/vida_interfaces/msg/detail/controls__struct.hpp"
   "rosidl_generator_cpp/vida_interfaces/msg/detail/controls__traits.hpp"
+  "rosidl_generator_cpp/vida_interfaces/msg/detail/controls__type_support.hpp"
   "rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__builder.hpp"
   "rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__struct.hpp"
   "rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__traits.hpp"
+  "rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__type_support.hpp"
   "rosidl_generator_cpp/vida_interfaces/msg/sensor_datas.hpp"
 )
 

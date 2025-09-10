@@ -7,5 +7,6 @@
 #include "vida_interfaces/msg/detail/controls__struct.hpp"
 #include "vida_interfaces/msg/detail/controls__builder.hpp"
 #include "vida_interfaces/msg/detail/controls__traits.hpp"
+#include "vida_interfaces/msg/detail/controls__type_support.hpp"
 
 #endif  // VIDA_INTERFACES__MSG__CONTROLS_HPP_

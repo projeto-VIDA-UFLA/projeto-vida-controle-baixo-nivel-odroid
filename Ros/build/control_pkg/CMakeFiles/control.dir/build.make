@@ -115,8 +115,8 @@ control: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib
 control: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib/libvida_interfaces__rosidl_typesupport_introspection_cpp.so
 control: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib/libvida_interfaces__rosidl_typesupport_cpp.so
 control: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib/libvida_interfaces__rosidl_generator_py.so
-control: /usr/local/lib/libwiringPi.so
-control: /usr/local/lib/libwiringPiDev.so
+control: /usr/lib/aarch64-linux-gnu/libwiringPi.so
+control: /usr/lib/aarch64-linux-gnu/libwiringPiDev.so
 control: /opt/ros/humble/lib/liblibstatistics_collector.so
 control: /opt/ros/humble/lib/librcl.so
 control: /opt/ros/humble/lib/librmw_implementation.so

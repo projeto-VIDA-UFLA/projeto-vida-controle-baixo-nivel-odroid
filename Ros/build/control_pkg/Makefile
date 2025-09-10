@@ -224,6 +224,19 @@ sensors/fast:
 .PHONY : sensors/fast
 
 #=============================================================================
+# Target rules for targets named send_data_control
+
+# Build rule for target.
+send_data_control: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_data_control
+.PHONY : send_data_control
+
+# fast build rule for target.
+send_data_control/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/build
+.PHONY : send_data_control/fast
+
+#=============================================================================
 # Target rules for targets named record
 
 # Build rule for target.
@@ -243,6 +256,7 @@ home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.o: home/odroid/Docume
 home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control.dir/build.make CMakeFiles/control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensors.dir/build.make CMakeFiles/sensors.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o
 .PHONY : home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o
 
 home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.i: home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.i
@@ -252,6 +266,7 @@ home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.i: home/odroid/Docume
 home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control.dir/build.make CMakeFiles/control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensors.dir/build.make CMakeFiles/sensors.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.i
 .PHONY : home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.i
 
 home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.s: home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.s
@@ -261,6 +276,7 @@ home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.s: home/odroid/Docume
 home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control.dir/build.make CMakeFiles/control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensors.dir/build.make CMakeFiles/sensors.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.s
 .PHONY : home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.s
 
 src/Control/Control.o: src/Control/Control.cpp.o
@@ -311,6 +327,30 @@ src/Record/Record.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/record.dir/build.make CMakeFiles/record.dir/src/Record/Record.cpp.s
 .PHONY : src/Record/Record.cpp.s
 
+src/SendDataControl/SendDataControl.o: src/SendDataControl/SendDataControl.cpp.o
+.PHONY : src/SendDataControl/SendDataControl.o
+
+# target to build an object file
+src/SendDataControl/SendDataControl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/src/SendDataControl/SendDataControl.cpp.o
+.PHONY : src/SendDataControl/SendDataControl.cpp.o
+
+src/SendDataControl/SendDataControl.i: src/SendDataControl/SendDataControl.cpp.i
+.PHONY : src/SendDataControl/SendDataControl.i
+
+# target to preprocess a source file
+src/SendDataControl/SendDataControl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/src/SendDataControl/SendDataControl.cpp.i
+.PHONY : src/SendDataControl/SendDataControl.cpp.i
+
+src/SendDataControl/SendDataControl.s: src/SendDataControl/SendDataControl.cpp.s
+.PHONY : src/SendDataControl/SendDataControl.s
+
+# target to generate assembly for a file
+src/SendDataControl/SendDataControl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/send_data_control.dir/build.make CMakeFiles/send_data_control.dir/src/SendDataControl/SendDataControl.cpp.s
+.PHONY : src/SendDataControl/SendDataControl.cpp.s
+
 src/Sensors/Sensors.o: src/Sensors/Sensors.cpp.o
 .PHONY : src/Sensors/Sensors.o
 
@@ -352,6 +392,7 @@ help:
 	@echo "... uninstall"
 	@echo "... control"
 	@echo "... record"
+	@echo "... send_data_control"
 	@echo "... sensors"
 	@echo "... home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.o"
 	@echo "... home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.i"
@@ -362,6 +403,9 @@ help:
 	@echo "... src/Record/Record.o"
 	@echo "... src/Record/Record.i"
 	@echo "... src/Record/Record.s"
+	@echo "... src/SendDataControl/SendDataControl.o"
+	@echo "... src/SendDataControl/SendDataControl.i"
+	@echo "... src/SendDataControl/SendDataControl.s"
 	@echo "... src/Sensors/Sensors.o"
 	@echo "... src/Sensors/Sensors.i"
 	@echo "... src/Sensors/Sensors.s"

@@ -115,8 +115,8 @@ sensors: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib
 sensors: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib/libvida_interfaces__rosidl_typesupport_introspection_cpp.so
 sensors: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib/libvida_interfaces__rosidl_typesupport_cpp.so
 sensors: /home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib/libvida_interfaces__rosidl_generator_py.so
-sensors: /usr/local/lib/libwiringPi.so
-sensors: /usr/local/lib/libwiringPiDev.so
+sensors: /usr/lib/aarch64-linux-gnu/libwiringPi.so
+sensors: /usr/lib/aarch64-linux-gnu/libwiringPiDev.so
 sensors: /opt/ros/humble/lib/liblibstatistics_collector.so
 sensors: /opt/ros/humble/lib/librcl.so
 sensors: /opt/ros/humble/lib/librmw_implementation.so

@@ -5,7 +5,7 @@
 #include <string.h>
 
 #include "rclcpp/rclcpp.hpp"
-#include "vida_interfaces/msg/controls.hpp"
+#include "std_msgs/msg/int16.hpp"
 
 #include <wiringpi2/wiringPi.h>
 

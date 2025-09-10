@@ -1,0 +1,199 @@
+[0.000000] (-) TimerEvent: {}
+[0.001031] (-) JobUnselected: {'identifier': 'vida_bringup'}
+[0.002050] (-) JobUnselected: {'identifier': 'vida_interfaces'}
+[0.002651] (control_pkg) JobQueued: {'identifier': 'control_pkg', 'dependencies': OrderedDict([('vida_interfaces', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces')])}
+[0.003359] (control_pkg) JobStarted: {'identifier': 'control_pkg'}
+[0.075616] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'cmake'}
+[0.078410] (control_pkg) JobProgress: {'identifier': 'control_pkg', 'progress': 'build'}
+[0.081257] (control_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg', '--', '-j6', '-l6'], 'cwd': '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('QT_SCALE_FACTOR', '1'), ('LANGUAGE', 'pt_BR:pt:pt_PT:en'), ('USER', 'odroid'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SEAT', 'seat0'), ('XDG_SESSION_TYPE', 'x11'), ('COMPIZ_CONFIG_PROFILE', 'mate'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/odroid'), ('OLDPWD', '/home/odroid/Documentos/Plataforma-VIDA'), ('DESKTOP_SESSION', 'mate'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module:gail:atk-bridge:canberra-gtk-module'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('UBUNTU_MENUPROXY', '1'), ('QT_QPA_PLATFORMTHEME', 'gtk2'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'odroid'), ('WINDOWID', '88080390'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/odroid:@/tmp/.ICE-unix/3506,unix/odroid:/tmp/.ICE-unix/3506'), ('GDM_LANG', 'pt_BR'), ('PAPERSIZE', 'a4'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('media_arm_audio_decoder', 'ape,flac,dts,ac3,eac3,wma,wmapro,mp3,aac,aac_latm,vorbis,raac,cook,amr,pcm,adpcm'), ('DISPLAY', ':0.0'), ('LANG', 'pt_BR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'MATE'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('XDG_SESSION_DESKTOP', 'mate'), ('XAUTHORITY', '/home/odroid/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/odroid'), ('AMENT_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'mate'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('XDG_VTNR', '7'), ('PWD', '/home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-mate:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/mate:/usr/share/mate:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('MATE_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('media_libplayer_modules', 'libcurl_mod.so,libdash_mod.so,libvhls_mod.so'), ('QT_FONT_DPI', '96'), ('CMAKE_PREFIX_PATH', '/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces:/opt/ros/humble')]), 'shell': False}
+[0.098605] (-) TimerEvent: {}
+[0.189996] (control_pkg) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.198751] (-) TimerEvent: {}
+[0.299363] (-) TimerEvent: {}
+[0.400029] (-) TimerEvent: {}
+[0.500903] (-) TimerEvent: {}
+[0.601603] (-) TimerEvent: {}
+[0.603788] (control_pkg) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.671466] (control_pkg) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.678661] (control_pkg) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.695013] (control_pkg) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.701719] (-) TimerEvent: {}
+[0.722400] (control_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.759869] (control_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.801901] (-) TimerEvent: {}
+[0.851872] (control_pkg) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.855553] (control_pkg) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.902059] (-) TimerEvent: {}
+[1.002694] (-) TimerEvent: {}
+[1.081499] (control_pkg) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.102855] (-) TimerEvent: {}
+[1.203473] (-) TimerEvent: {}
+[1.233457] (control_pkg) StdoutLine: {'line': b'-- Found vida_interfaces: 0.0.0 (/home/odroid/Documentos/Plataforma-VIDA/Ros/install/vida_interfaces/share/vida_interfaces/cmake)\n'}
+[1.303726] (-) TimerEvent: {}
+[1.404602] (-) TimerEvent: {}
+[1.490817] (control_pkg) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.504868] (-) TimerEvent: {}
+[1.550535] (control_pkg) StdoutLine: {'line': b'-- Generating done\n'}
+[1.555518] (control_pkg) StdoutLine: {'line': b'-- Build files have been written to: /home/odroid/Documentos/Plataforma-VIDA/Ros/build/control_pkg\n'}
+[1.605152] (-) TimerEvent: {}
+[1.635943] (control_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target record\x1b[0m\n'}
+[1.638212] (control_pkg) StderrLine: {'line': b"gmake[2]: *** Sem regra para processar o alvo '/usr/local/lib/libwiringPi.so', necess\xc3\xa1rio por 'send_data_control'.  Pare.\n"}
+[1.638862] (control_pkg) StderrLine: {'line': b'gmake[2]: ** Esperando que outros processos terminem.\n'}
+[1.646163] (control_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target control\x1b[0m\n'}
+[1.655214] (control_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sensors\x1b[0m\n'}
+[1.655961] (control_pkg) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object CMakeFiles/send_data_control.dir/src/SendDataControl/SendDataControl.cpp.o\x1b[0m\n'}
+[1.664228] (control_pkg) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/send_data_control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o\x1b[0m\n'}
+[1.697449] (control_pkg) StderrLine: {'line': b"gmake[2]: *** Sem regra para processar o alvo '/usr/local/lib/libwiringPi.so', necess\xc3\xa1rio por 'control'.  Pare.\n"}
+[1.698027] (control_pkg) StderrLine: {'line': b'gmake[2]: ** Esperando que outros processos terminem.\n'}
+[1.705322] (-) TimerEvent: {}
+[1.717410] (control_pkg) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/sensors.dir/src/Sensors/Sensors.cpp.o\x1b[0m\n'}
+[1.719544] (control_pkg) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/control.dir/src/Control/Control.cpp.o\x1b[0m\n'}
+[1.723022] (control_pkg) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/record.dir/src/Record/Record.cpp.o\x1b[0m\n'}
+[1.724632] (control_pkg) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/control.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o\x1b[0m\n'}
+[1.805535] (-) TimerEvent: {}
+[1.906253] (-) TimerEvent: {}
+[2.006964] (-) TimerEvent: {}
+[2.107795] (-) TimerEvent: {}
+[2.208574] (-) TimerEvent: {}
+[2.309422] (-) TimerEvent: {}
+[2.410583] (-) TimerEvent: {}
+[2.511358] (-) TimerEvent: {}
+[2.612334] (-) TimerEvent: {}
+[2.715113] (-) TimerEvent: {}
+[2.816075] (-) TimerEvent: {}
+[2.916937] (-) TimerEvent: {}
+[3.017821] (-) TimerEvent: {}
+[3.118710] (-) TimerEvent: {}
+[3.219664] (-) TimerEvent: {}
+[3.320574] (-) TimerEvent: {}
+[3.332613] (control_pkg) StderrLine: {'line': b"gmake[2]: *** Sem regra para processar o alvo '/usr/local/lib/libwiringPi.so', necess\xc3\xa1rio por 'sensors'.  Pare.\n"}
+[3.333212] (control_pkg) StderrLine: {'line': b'gmake[2]: ** Esperando que outros processos terminem.\n'}
+[3.388004] (control_pkg) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/sensors.dir/home/odroid/Documentos/Plataforma-VIDA/Utils/Serial/Serial.cpp.o\x1b[0m\n'}
+[3.420796] (-) TimerEvent: {}
+[3.521681] (-) TimerEvent: {}
+[3.623003] (-) TimerEvent: {}
+[3.724391] (-) TimerEvent: {}
+[3.825748] (-) TimerEvent: {}
+[3.927078] (-) TimerEvent: {}
+[4.028405] (-) TimerEvent: {}
+[4.129399] (-) TimerEvent: {}
+[4.230925] (-) TimerEvent: {}
+[4.332508] (-) TimerEvent: {}
+[4.433672] (-) TimerEvent: {}
+[4.534636] (-) TimerEvent: {}
+[4.636092] (-) TimerEvent: {}
+[4.737477] (-) TimerEvent: {}
+[4.838935] (-) TimerEvent: {}
+[4.940002] (-) TimerEvent: {}
+[5.040985] (-) TimerEvent: {}
+[5.141962] (-) TimerEvent: {}
+[5.242927] (-) TimerEvent: {}
+[5.344371] (-) TimerEvent: {}
+[5.445646] (-) TimerEvent: {}
+[5.546928] (-) TimerEvent: {}
+[5.648281] (-) TimerEvent: {}
+[5.749426] (-) TimerEvent: {}
+[5.850690] (-) TimerEvent: {}
+[5.951909] (-) TimerEvent: {}
+[6.053435] (-) TimerEvent: {}
+[6.158816] (-) TimerEvent: {}
+[6.260196] (-) TimerEvent: {}
+[6.361245] (-) TimerEvent: {}
+[6.462568] (-) TimerEvent: {}
+[6.563417] (-) TimerEvent: {}
+[6.664417] (-) TimerEvent: {}
+[6.766010] (-) TimerEvent: {}
+[6.867504] (-) TimerEvent: {}
+[6.968584] (-) TimerEvent: {}
+[7.070651] (-) TimerEvent: {}
+[7.171552] (-) TimerEvent: {}
+[7.272562] (-) TimerEvent: {}
+[7.373687] (-) TimerEvent: {}
+[7.474575] (-) TimerEvent: {}
+[7.575785] (-) TimerEvent: {}
+[7.676822] (-) TimerEvent: {}
+[7.777954] (-) TimerEvent: {}
+[7.879082] (-) TimerEvent: {}
+[7.980216] (-) TimerEvent: {}
+[8.081390] (-) TimerEvent: {}
+[8.182549] (-) TimerEvent: {}
+[8.283629] (-) TimerEvent: {}
+[8.384840] (-) TimerEvent: {}
+[8.486114] (-) TimerEvent: {}
+[8.588088] (-) TimerEvent: {}
+[8.689269] (-) TimerEvent: {}
+[8.790447] (-) TimerEvent: {}
+[8.891616] (-) TimerEvent: {}
+[8.992867] (-) TimerEvent: {}
+[9.094027] (-) TimerEvent: {}
+[9.195207] (-) TimerEvent: {}
+[9.296438] (-) TimerEvent: {}
+[9.397499] (-) TimerEvent: {}
+[9.498592] (-) TimerEvent: {}
+[9.599833] (-) TimerEvent: {}
+[9.701062] (-) TimerEvent: {}
+[9.802216] (-) TimerEvent: {}
+[9.903303] (-) TimerEvent: {}
+[10.004477] (-) TimerEvent: {}
+[10.105645] (-) TimerEvent: {}
+[10.206716] (-) TimerEvent: {}
+[10.308076] (-) TimerEvent: {}
+[10.409165] (-) TimerEvent: {}
+[10.510276] (-) TimerEvent: {}
+[10.611380] (-) TimerEvent: {}
+[10.712519] (-) TimerEvent: {}
+[10.813770] (-) TimerEvent: {}
+[10.914677] (-) TimerEvent: {}
+[11.015872] (-) TimerEvent: {}
+[11.117026] (-) TimerEvent: {}
+[11.218194] (-) TimerEvent: {}
+[11.319299] (-) TimerEvent: {}
+[11.420573] (-) TimerEvent: {}
+[11.521647] (-) TimerEvent: {}
+[11.622826] (-) TimerEvent: {}
+[11.724104] (-) TimerEvent: {}
+[11.825234] (-) TimerEvent: {}
+[11.926420] (-) TimerEvent: {}
+[12.027593] (-) TimerEvent: {}
+[12.128754] (-) TimerEvent: {}
+[12.229877] (-) TimerEvent: {}
+[12.331038] (-) TimerEvent: {}
+[12.432165] (-) TimerEvent: {}
+[12.533231] (-) TimerEvent: {}
+[12.634287] (-) TimerEvent: {}
+[12.735411] (-) TimerEvent: {}
+[12.836635] (-) TimerEvent: {}
+[12.937832] (-) TimerEvent: {}
+[13.039003] (-) TimerEvent: {}
+[13.075849] (control_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/odroid/Documentos/Plataforma-VIDA/Ros/src/control_pkg/src/SendDataControl/SendDataControl.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kint SendDataControl::calculateCheckSum(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.122233] (control_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/odroid/Documentos/Plataforma-VIDA/Ros/src/control_pkg/src/SendDataControl/SendDataControl.cpp:58:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::__cxx11::basic_string<char>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.123458] (control_pkg) StderrLine: {'line': b'   58 |     for (int i = 0; \x1b[01;35m\x1b[Ki < dado.length()\x1b[m\x1b[K; i++)\n'}
+[13.124528] (control_pkg) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[13.139253] (-) TimerEvent: {}
+[13.244272] (-) TimerEvent: {}
+[13.345440] (-) TimerEvent: {}
+[13.446635] (-) TimerEvent: {}
+[13.547879] (-) TimerEvent: {}
+[13.649080] (-) TimerEvent: {}
+[13.751224] (-) TimerEvent: {}
+[13.852505] (-) TimerEvent: {}
+[13.953644] (-) TimerEvent: {}
+[14.054766] (-) TimerEvent: {}
+[14.155955] (-) TimerEvent: {}
+[14.257049] (-) TimerEvent: {}
+[14.358137] (-) TimerEvent: {}
+[14.459222] (-) TimerEvent: {}
+[14.561094] (-) TimerEvent: {}
+[14.662217] (-) TimerEvent: {}
+[14.763327] (-) TimerEvent: {}
+[14.864454] (-) TimerEvent: {}
+[14.965624] (-) TimerEvent: {}
+[15.067025] (-) TimerEvent: {}
+[15.168063] (-) TimerEvent: {}
+[15.269301] (-) TimerEvent: {}
+[15.370511] (-) TimerEvent: {}
+[15.471753] (-) TimerEvent: {}
+[15.573218] (-) TimerEvent: {}
+[15.675254] (-) TimerEvent: {}
+[25.643244] (-) TimerEvent: {}
+[47.508199] (-) TimerEvent: {}

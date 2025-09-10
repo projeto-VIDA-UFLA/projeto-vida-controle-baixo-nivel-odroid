@@ -70,10 +70,13 @@ CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/contro
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__builder.hpp
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__struct.hpp
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__traits.hpp
+CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__type_support.hpp
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/sensor_datas.hpp
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__builder.hpp
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__struct.hpp
 CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__traits.hpp
+CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__type_support.hpp
+CMakeFiles/vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 
 rosidl_generator_cpp/vida_interfaces/msg/controls.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
 rosidl_generator_cpp/vida_interfaces/msg/controls.hpp: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_cpp/__init__.py
@@ -104,6 +107,9 @@ rosidl_generator_cpp/vida_interfaces/msg/detail/controls__struct.hpp: rosidl_gen
 rosidl_generator_cpp/vida_interfaces/msg/detail/controls__traits.hpp: rosidl_generator_cpp/vida_interfaces/msg/controls.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/vida_interfaces/msg/detail/controls__traits.hpp
 
+rosidl_generator_cpp/vida_interfaces/msg/detail/controls__type_support.hpp: rosidl_generator_cpp/vida_interfaces/msg/controls.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/vida_interfaces/msg/detail/controls__type_support.hpp
+
 rosidl_generator_cpp/vida_interfaces/msg/sensor_datas.hpp: rosidl_generator_cpp/vida_interfaces/msg/controls.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/vida_interfaces/msg/sensor_datas.hpp
 
@@ -116,14 +122,19 @@ rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__struct.hpp: rosidl
 rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__traits.hpp: rosidl_generator_cpp/vida_interfaces/msg/controls.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__traits.hpp
 
+rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__type_support.hpp: rosidl_generator_cpp/vida_interfaces/msg/controls.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__type_support.hpp
+
 vida_interfaces__cpp: CMakeFiles/vida_interfaces__cpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/controls.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__builder.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__struct.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__traits.hpp
+vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/controls__type_support.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__builder.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__struct.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__traits.hpp
+vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/detail/sensor_datas__type_support.hpp
 vida_interfaces__cpp: rosidl_generator_cpp/vida_interfaces/msg/sensor_datas.hpp
 vida_interfaces__cpp: CMakeFiles/vida_interfaces__cpp.dir/build.make
 .PHONY : vida_interfaces__cpp

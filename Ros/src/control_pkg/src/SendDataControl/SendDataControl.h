@@ -2,6 +2,8 @@
 #define CONTROL_H
 
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <string.h>
 
 #include "rclcpp/rclcpp.hpp"
@@ -18,7 +20,7 @@ class SendDataControl : public Node
 {
 private:
     
-    Serial *Serial;
+    Serial *serial;
 
     double frequencyPublish;
 
@@ -37,6 +39,8 @@ private:
     void callbackSpeed(const std_msgs::msg::Int16::SharedPtr msgSpeed);
     void callbackBrake(const std_msgs::msg::Int16::SharedPtr msgBrake);
     void sendMensage();
+
+    int calculateCheckSum(const string& dado);
     
 
 public:
