@@ -22,9 +22,10 @@ class Control : public Node
 private:
     
     Serial *motorSerial;
-    Subscription<vida_interfaces::msg::Controls>::SharedPtr subscriber;
+    Subscription<std_msgs::msg::Int16>::SharedPtr subscriber;
+    Publisher<std_msgs::msg::Int16>::SharedPtr speedPublisher;
 
-    void callbackControls(const vida_interfaces::msg::Controls::SharedPtr msg);
+    void callbackControls(const std_msgs::msg::Int16::SharedPtr msg);
     
 
 public:
