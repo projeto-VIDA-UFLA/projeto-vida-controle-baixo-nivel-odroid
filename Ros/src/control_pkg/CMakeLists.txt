@@ -21,7 +21,7 @@ add_executable(control
     ../../../Utils/Serial/Serial.cpp
     ../../../Utils/Serial/Serial.h
 )
-ament_target_dependencies(control rclcpp vida_interfaces)
+ament_target_dependencies(control rclcpp std_msgs)
 target_link_libraries(control ${WIRINGPI_LIB} ${WIRINGPI_DEV_LIB})
 
 # ----------------- Sensors -----------------

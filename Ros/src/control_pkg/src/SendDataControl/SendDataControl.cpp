@@ -11,8 +11,8 @@ SendDataControl::SendDataControl(string name) : Node(name)
     this->declare_parameter("frequency_publish", 100.0);
     frequencyPublish = this->get_parameter("frequency_publish").as_double();
 
-    steeringSubscription = this->create_subscription<std_msgs::msg::Int16>("steering", 10, bind(&SendDataControl::callbackSteering, this, _1));
-    speedSubSubscription = this->create_subscription<std_msgs::msg::Int16>("speed", 10, bind(&SendDataControl::callbackSpeed, this, _1));
+    steeringSubscription = this->create_subscription<std_msgs::msg::Int16>("/pwm/steering", 10, bind(&SendDataControl::callbackSteering, this, _1));
+    speedSubSubscription = this->create_subscription<std_msgs::msg::Int16>("/pwm/speed", 10, bind(&SendDataControl::callbackSpeed, this, _1));
     brakeSubSubscription = this->create_subscription<std_msgs::msg::Int16>("brake", 10, bind(&SendDataControl::callbackBrake, this, _1));
     timer = this->create_wall_timer(chrono::nanoseconds((int)(1e9 / frequencyPublish)), bind(&SendDataControl::sendMensage, this));
 
@@ -48,6 +48,7 @@ void SendDataControl::sendMensage()
     ss << "#" << dado << "*" << hex << uppercase << checkSum;
 
     string msg = ss.str();
+    RCLCPP_INFO(this->get_logger(), msg.c_str());
     serial->write(msg);
 }
 

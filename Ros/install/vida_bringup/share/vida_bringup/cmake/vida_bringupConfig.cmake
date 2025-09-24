@@ -1,1 +1,0 @@
-/home/odroid/Documentos/Plataforma-VIDA/Ros/build/vida_bringup/ament_cmake_core/vida_bringupConfig.cmake

@@ -2,7 +2,7 @@
 
 Control::Control(string name) : Node(name)
 {
-    subscriber = this->create_subscription<vida_interfaces::msg::Controls>("/setpoint/speed", 10, bind(&Control::callbackControls, this, _1));
+    subscriber = this->create_subscription<std_msgs::msg::Int16>("/setpoint/speed", 10, bind(&Control::callbackControls, this, _1));
     speedPublisher = this->create_publisher<std_msgs::msg::Int16>("/pwm/speed", 10);
     RCLCPP_INFO(this->get_logger(), "control speed has been started");
 }
@@ -15,20 +15,24 @@ Control::~Control()
 void Control::callbackControls(const std_msgs::msg::Int16::SharedPtr speedValue)
 {
     int pwm;
-
-    if (speedValue < 20)
+    int speed = speedValue->data;
+    if (speed < 20)
     {
-        speedValue = 0;
         pwm = 0;
+        speed = 0;
     }
 
     else
     {
-        pwm = map(speedValue, 20, 512, 64, 125);
+
+        pwm = (speed - 20) * (125 - 64) / (512 - 20) + 64;
     }
 
-    speedPublisher->publish(pwm);
+    auto msg = std_msgs::msg::Int16();
+    msg.data = pwm;
+    speedPublisher->publish(msg);
 }
+
 
 int main(int argc, char **argv)
 {

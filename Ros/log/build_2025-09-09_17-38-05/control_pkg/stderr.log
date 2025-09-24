@@ -1,4 +1,0 @@
-[01m[K/home/odroid/Documentos/Plataforma-VIDA/Ros/src/control_pkg/src/SendDataControl/SendDataControl.cpp:[m[K In member function ‘[01m[Kint SendDataControl::calculateCheckSum(const string&)[m[K’:
-[01m[K/home/odroid/Documentos/Plataforma-VIDA/Ros/src/control_pkg/src/SendDataControl/SendDataControl.cpp:58:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::__cxx11::basic_string<char>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
-   58 |     for (int i = 0; [01;35m[Ki < dado.length()[m[K; i++)
-      |                     [01;35m[K~~^~~~~~~~~~~~~~~[m[K

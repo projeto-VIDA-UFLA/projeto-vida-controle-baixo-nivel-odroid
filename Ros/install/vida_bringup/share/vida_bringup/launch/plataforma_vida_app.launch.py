@@ -1,1 +1,0 @@
-/home/odroid/Documentos/Plataforma-VIDA/Ros/src/vida_bringup/launch/plataforma_vida_app.launch.py
