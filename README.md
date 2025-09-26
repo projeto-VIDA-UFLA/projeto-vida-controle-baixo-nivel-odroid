@@ -29,5 +29,4 @@ This repository contains the VIDA standalone platform codes.
 Video: https://youtu.be/gFds-Ci4kwE
 
 
-teste github
-
+teste 
