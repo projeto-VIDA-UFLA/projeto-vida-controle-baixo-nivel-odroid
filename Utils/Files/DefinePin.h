@@ -4,7 +4,6 @@
 
 #define BAUD_RATE 115200
 
-#define motorInterrupt 1
 #define sensorInterrupt 4
 
 #endif

@@ -1,12 +1,13 @@
-#ifndef CONTROL_H
-#define CONTROL_H
+#ifndef get_sensor_data_H
+#define get_sensor_data_H
 
 #include <iostream>
 #include <string.h>
 #include <cstdio>
+
 #include "rclcpp/rclcpp.hpp"
-#include "vida_interfaces/msg/controls.hpp"
-#include "vida_interfaces/msg/sensor_datas.hpp"
+#include "std_msgs/msg/float64.hpp"
+
 #include <wiringpi2/wiringPi.h>
 #include "../../../../../Utils/Serial/Serial.h"
 #include "../../../../../Utils/Files/DefinePin.h"
@@ -14,23 +15,23 @@
 using namespace std;
 using namespace rclcpp;
 
-class Sensors : public Node
+class get_sensor_data : public Node
 {
 private:
     
-    int frequencyPublish;
     string dataRecived;
 
     Serial *sensorSerial;
     TimerBase::SharedPtr timer;
-    Publisher<vida_interfaces::msg::SensorDatas>::SharedPtr publisher;
     
+    Publisher<std_msgs::msg::Float64>::SharedPtr publisher_speed;
+    Publisher<std_msgs::msg::Float64>::SharedPtr publisher_steering;    
     
     void readSensors();
 
 public:
-    Sensors(string name);
-    ~Sensors();
+    get_sensor_data(string name);
+    ~get_sensor_data();
 };
 
 #endif
