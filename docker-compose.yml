@@ -1,0 +1,24 @@
+services:
+  micro_ros_agent:
+    build:
+      context: ./micro_ros_agent
+      dockerfile: Dockerfile
+    image: vida-micro-ros-agent:humble
+    container_name: micro_ros_agent
+    restart: unless-stopped
+    network_mode: host
+    devices:
+      - /dev/vida_esp32:/dev/vida_esp32
+    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "115200", "-v6"]
+
+  ros_tools:
+    build:
+      context: .
+      dockerfile: ros_tools/Dockerfile
+    image: vida-ros-tools:humble
+    container_name: ros_tools
+    restart: unless-stopped
+    network_mode: host
+    stdin_open: true
+    tty: true
+    command: ["bash", "-lc", "source /opt/ros/humble/setup.bash && source /vida_ws/install/setup.bash && sleep infinity"]

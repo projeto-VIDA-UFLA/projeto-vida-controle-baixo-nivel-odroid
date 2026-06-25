@@ -1,4 +1,0 @@
-int64 left_pulses
-int64 right_pulses
-int64 back_pulses
-float64 steering
