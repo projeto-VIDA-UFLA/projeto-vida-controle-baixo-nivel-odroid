@@ -9,7 +9,7 @@ services:
     network_mode: host
     devices:
       - /dev/vida_esp32:/dev/vida_esp32
-    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "115200", "-v6"]
+    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "460800", "-v6"]
 
   ros_tools:
     build:
