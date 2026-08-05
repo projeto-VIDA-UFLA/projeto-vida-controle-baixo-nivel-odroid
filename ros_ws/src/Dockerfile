@@ -15,7 +15,7 @@ WORKDIR /vida_ws
 COPY src ./src
 
 RUN source /opt/ros/humble/setup.bash && \
-    colcon build --packages-select vida_interfaces
+    colcon build
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc && \
     echo "source /vida_ws/install/setup.bash" >> /root/.bashrc
