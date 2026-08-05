@@ -13,12 +13,12 @@ services:
     logging: {driver: local, options: {max-size: "10m", max-file: "3"}}
 
 
-  ros_tools:
+  ros_ws:
     build:
-      context: .
-      dockerfile: ros_tools/Dockerfile
-    image: vida-ros-tools:humble
-    container_name: ros_tools
+      context: ./ros_ws
+      dockerfile: Dockerfile
+    image: vida-ros-ws:humble
+    container_name: ros_ws
     restart: unless-stopped
     network_mode: host
     stdin_open: true
