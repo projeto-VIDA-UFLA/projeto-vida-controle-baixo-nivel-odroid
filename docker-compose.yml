@@ -9,10 +9,10 @@ services:
     network_mode: host
     devices:
       - /dev/vida_esp32:/dev/vida_esp32
-    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "460800", "-v4"]
+    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "460800", "-v3"]
     logging: {driver: local, options: {max-size: "10m", max-file: "3"}}
 
-    
+
   ros_tools:
     build:
       context: .
