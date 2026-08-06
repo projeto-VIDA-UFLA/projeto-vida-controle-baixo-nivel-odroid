@@ -6,7 +6,9 @@ RUN apt update && apt install -y \
     build-essential \
     cmake \
     python3-colcon-common-extensions \
+    python3-serial \
     ros-humble-rosidl-default-generators \
+    ros-humble-sensor-msgs \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /vida_ws
