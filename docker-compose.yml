@@ -25,10 +25,4 @@ services:
     tty: true
     devices:
       - /dev/vida_ublox:/dev/vida_ublox
-    command:
-      - bash
-      - -lc
-      - |
-        source /opt/ros/humble/setup.bash &&
-        source /vida_ws/install/setup.bash &&
-        ros2 launch vida_ublox_driver ublox_m8u.launch.py'
+    command: ["bash", "-lc", "source /opt/ros/humble/setup.bash && source /vida_ws/install/setup.bash && exec ros2 launch vida_ublox_driver ublox_m8u.launch.py"]
