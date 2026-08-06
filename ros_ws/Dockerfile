@@ -7,7 +7,6 @@ RUN apt update && apt install -y \
     cmake \
     python3-colcon-common-extensions \
     ros-humble-rosidl-default-generators \
-    ros-humble-plotjuggler-ros \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /vida_ws
