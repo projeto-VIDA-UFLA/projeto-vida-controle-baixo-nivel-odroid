@@ -9,7 +9,7 @@ services:
     network_mode: host
     devices:
       - /dev/vida_esp32:/dev/vida_esp32
-    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "460800", "-v3"]
+    command: ["serial", "--dev", "/dev/vida_esp32", "-b", "921600", "-v3"]
     logging: {driver: local, options: {max-size: "10m", max-file: "3"}}
 
 
