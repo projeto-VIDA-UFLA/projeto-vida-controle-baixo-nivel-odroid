@@ -19,7 +19,6 @@ RUN source /opt/ros/humble/setup.bash && \
     colcon build
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc && \
-    echo "source /vida_ws/install/setup.bash" >> /root/.bashrc && \
-    ros2 launch vida_ublox_driver ublox_m8u.launch.py
+    echo "source /vida_ws/install/setup.bash" >> /root/.bashrc
 
 CMD ["bash"]
