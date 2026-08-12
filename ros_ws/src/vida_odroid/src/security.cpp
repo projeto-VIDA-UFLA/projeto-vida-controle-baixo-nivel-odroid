@@ -10,7 +10,7 @@ Security::Security(const std::string &node_name)
 
   logical_enable_publisher_ = this->create_publisher<vida_interfaces::msg::LogicalEnable>("/vida/safety/logical_enable", 10);
 
-  RCLCPP_INFO(this->get_logger(), "Monitorando /vida/gamepad/enabled e publicando /vida/safety/logical_enable");
+  RCLCPP_INFO(this->get_logger(), "Monitorando /gamepad/enabled e publicando /vida/safety/logical_enable");
 }
 
 void Security::gamepad_enable_callback(const std_msgs::msg::Bool::SharedPtr msg)
