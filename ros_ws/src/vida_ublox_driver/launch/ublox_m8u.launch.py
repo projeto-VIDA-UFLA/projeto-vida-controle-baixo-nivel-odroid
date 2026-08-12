@@ -13,6 +13,7 @@ def generate_launch_description():
             package='vida_ublox_driver',
             executable='ublox_m8u_node',
             name='ublox_m8u',
+            namespace='vida',
             output='screen',
             parameters=[parameters],
         )

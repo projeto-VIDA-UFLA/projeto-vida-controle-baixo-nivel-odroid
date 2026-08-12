@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                  "/opt/ros/humble/include/**",
-                 "${env:HOME}/Libraries/WiringPi" 
+                 "~/ros_ws/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
