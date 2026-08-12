@@ -8,7 +8,6 @@ endif()
 # Busca de bibliotecas
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(vida_interfaces REQUIRED)
 
@@ -25,12 +24,6 @@ ament_target_dependencies(security rclcpp std_msgs vida_interfaces)
 install(TARGETS  
   security
   DESTINATION lib/${PROJECT_NAME}
-)
-
-install(DIRECTORY
-  config
-  launch
-  DESTINATION share/${PROJECT_NAME}
 )
 
 ament_package()

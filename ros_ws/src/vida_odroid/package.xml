@@ -10,14 +10,8 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>rclcpp</depend>
-  <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
   <depend>vida_interfaces</depend>
-
-  <!-- Fornece o joy_node que converte /dev/input/js* em sensor_msgs/Joy. -->
-  <exec_depend>joy</exec_depend>
-  <exec_depend>launch</exec_depend>
-  <exec_depend>launch_ros</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
