@@ -31,5 +31,5 @@ services:
       - >-
         source /opt/ros/humble/setup.bash &&
         source /vida_ws/install/setup.bash &&
-        ros2 launch vida_ublox_driver ublox_m8u.launch.py &&
-        ros2 run vida_odroid security
+        exec ros2 launch vida_odroid vida.launch.py
+    logging: {driver: local, options: {max-size: "10m", max-file: "3"}}
