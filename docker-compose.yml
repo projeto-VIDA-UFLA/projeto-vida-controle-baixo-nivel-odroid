@@ -31,5 +31,5 @@ services:
       - >-
         source /opt/ros/humble/setup.bash &&
         source /vida_ws/install/setup.bash &&
-        exec ros2 launch vida_ublox_driver ublox_m8u.launch.py &&
-        exec ros2 run vida_odroid security
+        ros2 launch vida_ublox_driver ublox_m8u.launch.py &&
+        ros2 run vida_odroid security
