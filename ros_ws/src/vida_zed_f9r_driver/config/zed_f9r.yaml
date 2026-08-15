@@ -1,0 +1,20 @@
+zed_f9r_driver:
+  ros__parameters:
+    device: /dev/vida_f9r
+    frame_id: f9r_link
+    baudrate: 115200
+    reconnect_interval_ms: 1000
+    configuration_ack_timeout_ms: 2000
+    correction_received_timeout_s: 10.0
+    disable_internal_sensor_fusion: true
+    priority_navigation_rate_hz: 0
+    apply_receiver_configuration: true
+    publish_raw_imu: true
+    publish_gnss: true
+    enable_rtcm_diagnostics: true
+    # Cada item seleciona um eixo nativo (1=x, 2=y, 3=z); sinal negativo inverte-o.
+    imu_axis_mapping: [1, 2, 3]
+    gps_fix_topic: /vida/sensors/gps/fix
+    gps_status_topic: /vida/sensors/gps/status
+    imu_topic: /vida/sensors/imu/data_raw
+    rtcm_topic: /vida/sensors/gps/rtcm
