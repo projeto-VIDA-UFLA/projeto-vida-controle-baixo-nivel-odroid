@@ -7,6 +7,7 @@ services:
     container_name: micro_ros_agent
     restart: unless-stopped
     network_mode: host
+    ipc: host
     devices:
       - /dev/vida_esp32:/dev/vida_esp32
     command: ["serial", "--dev", "/dev/vida_esp32", "-b", "921600", "-v3"]
@@ -21,8 +22,13 @@ services:
     container_name: ros2_ws
     restart: unless-stopped
     network_mode: host
+    ipc: host
+    environment:
+      FASTRTPS_DEFAULT_PROFILES_FILE: /etc/fastdds/udp-only.xml
     stdin_open: true
     tty: true
+    volumes:
+      - ./ros_ws/config/fastdds_udp.xml:/etc/fastdds/udp-only.xml:ro
     devices:
       - /dev/vida_ublox:/dev/vida_ublox
     command:
