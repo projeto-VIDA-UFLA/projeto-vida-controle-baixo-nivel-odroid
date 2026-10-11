@@ -42,26 +42,8 @@ docker compose run --rm ros2_ws bash -lc '
 ```
 
 `docker compose run` herda automaticamente os dispositivos declarados no serviço `ros2_ws`;
-nessa versão do Compose ele não aceita a opção `--device`. Se apenas a F9R estiver conectada e o
-Compose reclamar da ausência de `/dev/vida_ublox`, execute a mesma imagem sem herdar o
-dispositivo antigo:
-
-```bash
-docker run --rm -it \
-  --network host \
-  --ipc host \
-  --device=/dev/vida_f9r:/dev/vida_f9r \
-  --env FASTRTPS_DEFAULT_PROFILES_FILE=/etc/fastdds/udp-only.xml \
-  --env RMW_IMPLEMENTATION=rmw_fastrtps_cpp \
-  --env ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}" \
-  --env ROS_LOCALHOST_ONLY="${ROS_LOCALHOST_ONLY:-0}" \
-  --volume "$PWD/ros_ws/config/fastdds_udp.xml:/etc/fastdds/udp-only.xml:ro" \
-  vida-ros2-ws:humble bash -lc '
-    source /opt/ros/humble/setup.bash &&
-    source /vida_ws/install/setup.bash &&
-    ros2 launch vida_zed_f9r_driver zed_f9r.launch.py
-  '
-```
+nessa versão do Compose ele não aceita a opção `--device`. O fluxo principal mapeia somente
+`/dev/vida_f9r` e inicia F9R + NTRIP pelo `vida.launch.py`, sem exigir `/dev/vida_ublox`.
 
 Não execute simultaneamente `vida_ublox_driver`: ambos publicam um fix GNSS no tópico VIDA,
 embora permaneçam pacotes separados e usem dispositivos diferentes.
