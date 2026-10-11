@@ -15,6 +15,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/LogicalEnable.msg"
   "msg/SafetyStatus.msg"
   "msg/SteeringControllerOutput.msg"
+  "msg/GnssStatus.msg"
   DEPENDENCIES builtin_interfaces
 )
 

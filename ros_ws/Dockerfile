@@ -10,7 +10,6 @@ RUN apt update && apt install -y \
     ros-humble-ament-cmake-gtest \
     ros-humble-ament-lint-auto \
     ros-humble-ament-lint-common \
-    ros-humble-diagnostic-msgs \
     ros-humble-rosidl-default-generators \
     ros-humble-sensor-msgs \
     && rm -rf /var/lib/apt/lists/*

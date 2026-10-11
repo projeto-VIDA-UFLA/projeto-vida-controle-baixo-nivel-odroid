@@ -28,13 +28,12 @@ services:
       RMW_IMPLEMENTATION: rmw_fastrtps_cpp
       ROS_DOMAIN_ID: "${ROS_DOMAIN_ID:-0}"
       ROS_LOCALHOST_ONLY: "${ROS_LOCALHOST_ONLY:-0}"
-      VIDA_NTRIP_USERNAME: "${VIDA_NTRIP_USERNAME:-}"
-      VIDA_NTRIP_PASSWORD: "${VIDA_NTRIP_PASSWORD:-}"
     stdin_open: true
     tty: true
     volumes:
       - ./ros_ws/config/fastdds_udp.xml:/etc/fastdds/udp-only.xml:ro
     devices:
+      - /dev/vida_ublox:/dev/vida_ublox
       - /dev/vida_f9r:/dev/vida_f9r
     command:
       - bash
