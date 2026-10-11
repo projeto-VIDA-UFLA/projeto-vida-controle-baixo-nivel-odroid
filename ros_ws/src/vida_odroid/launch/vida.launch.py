@@ -8,16 +8,16 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    #f9r_rtk_launch = os.path.join(
-     #   get_package_share_directory('vida_ntrip_client'),
-     #   'launch',
-      #  'zed_f9r_rtk.launch.py',
-    #)
+    f9r_rtk_launch = os.path.join(
+        get_package_share_directory('vida_ntrip_client'),
+        'launch',
+        'zed_f9r_rtk.launch.py',
+    )
 
     return LaunchDescription([
-        #IncludeLaunchDescription(
-         #   PythonLaunchDescriptionSource(f9r_rtk_launch),
-        #),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(f9r_rtk_launch),
+        ),
         Node(
             package='vida_odroid',
             executable='security',
