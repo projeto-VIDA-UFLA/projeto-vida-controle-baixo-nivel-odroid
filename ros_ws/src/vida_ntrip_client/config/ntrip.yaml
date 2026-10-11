@@ -1,0 +1,19 @@
+/**:
+  ros__parameters:
+    caster_host: 170.84.40.52
+    caster_port: 2101
+    mountpoint: MGLA0
+    rtcm_topic: /vida/sensors/gps/rtcm
+    diagnostics_topic: /vida/sensors/gps/ntrip/diagnostics
+    user_agent: NTRIP VIDA/1.0
+    connect_timeout_ms: 5000
+    header_timeout_ms: 5000
+    read_timeout_ms: 15000
+    reconnect_initial_delay_ms: 1000
+    reconnect_max_delay_ms: 30000
+    max_response_header_bytes: 8192
+    publish_chunk_max_bytes: 4096
+    enable_rtcm_validation: true
+    send_gga: false
+    fix_topic: /vida/sensors/gps/fix
+    gga_interval_s: 10.0
