@@ -13,6 +13,15 @@ de navegação prioritária.
 - GPS, GLONASS, Galileo e BeiDou
 - Regra udev esperada: `/dev/vida_f9r -> /dev/ttyACM0`
 
+Instalação da regra udev no host (Odroid):
+
+```bash
+sudo cp ros_ws/src/vida_zed_f9r_driver/udev/99-vida-f9r.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+ls -l /dev/vida_f9r
+```
+
 Os layouts, escalas e chaves vêm da
 [Interface HPS 1.30 UBX-22010984](https://content.u-blox.com/sites/default/files/documents/u-blox-F9-HPS-1.30_InterfaceDescription_UBX-22010984.pdf)
 e do
