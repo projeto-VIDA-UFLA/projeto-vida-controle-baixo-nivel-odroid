@@ -7,10 +7,15 @@ RUN apt update && apt install -y \
     cmake \
     python3-colcon-common-extensions \
     python3-serial \
+    libeigen3-dev \
     ros-humble-ament-cmake-gtest \
     ros-humble-ament-lint-auto \
     ros-humble-ament-lint-common \
     ros-humble-diagnostic-msgs \
+    ros-humble-nav-msgs \
+    ros-humble-std-srvs \
+    ros-humble-tf2-geometry-msgs \
+    ros-humble-tf2-ros \
     ros-humble-rosidl-default-generators \
     ros-humble-sensor-msgs \
     && rm -rf /var/lib/apt/lists/*

@@ -14,9 +14,20 @@ def generate_launch_description():
         'zed_f9r_rtk.launch.py',
     )
 
+    # EKF (robot_state_ekf) no Odroid: os sensores (GPS/IMU, encoders e LVDT pelo
+    # micro-ROS) sao locais; o notebook recebe so odom e status.
+    ekf_launch = os.path.join(
+        get_package_share_directory('robot_state_ekf'),
+        'launch',
+        'robot_state_ekf.launch.py',
+    )
+
     return LaunchDescription([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(f9r_rtk_launch),
+        ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(ekf_launch),
         ),
         Node(
             package='vida_odroid',
