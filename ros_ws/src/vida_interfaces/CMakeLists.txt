@@ -16,6 +16,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SafetyStatus.msg"
   "msg/SteeringControllerOutput.msg"
   "msg/GnssStatus.msg"
+  "msg/EkfStatus.msg"
   DEPENDENCIES builtin_interfaces
 )
 
