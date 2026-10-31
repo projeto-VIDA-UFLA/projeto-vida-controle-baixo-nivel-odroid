@@ -10,6 +10,12 @@ services:
     ipc: host
     devices:
       - /dev/vida_esp32:/dev/vida_esp32
+    # Espera 2 s antes de abrir a serial: um agente que volta em menos de ~0,6 s
+    # (restart/up) nao e percebido pelo ESP32 (3 pings perdidos), que fica com
+    # uma sessao "zumbi" ate o reset. Com 2 s fora do ar ele detecta a queda e
+    # reconecta sozinho (31/10). Os argumentos de "command" passam para o script
+    # original da imagem.
+    entrypoint: ["/bin/sh", "-c", "sleep 2 && exec /bin/sh /micro-ros_entrypoint.sh \"$$@\"", "micro_ros_agent"]
     command: ["serial", "--dev", "/dev/vida_esp32", "-b", "921600", "-v3"]
     logging: {driver: local, options: {max-size: "10m", max-file: "3"}}
 
