@@ -8,6 +8,9 @@ zed_f9r_driver:
     correction_received_timeout_s: 10.0
     disable_internal_sensor_fusion: true
     priority_navigation_rate_hz: 0
+    # CFG-RATE-MEAS (so RAM): 1000 = 1 Hz (padrao de fabrica), 500 = 2 Hz (maximo
+    # da solucao GNSS do ZED-F9R fora do modo prioritario). NAK no log = recusado.
+    measurement_rate_ms: 1000
     apply_receiver_configuration: true
     publish_raw_imu: true
     publish_gnss: true

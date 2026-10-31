@@ -47,6 +47,8 @@ constexpr uint8_t kIdRxmRtcm = 0x32;
 
 constexpr uint32_t kCfgSfcoreUseSf = 0x10080001U;
 constexpr uint32_t kCfgRateNavPrio = 0x20210004U;
+// CFG-RATE-MEAS (U2, ms): periodo das medicoes GNSS (solucao normal).
+constexpr uint32_t kCfgRateMeas = 0x30210001U;
 constexpr uint32_t kCfgMsgoutUbxRxmRtcmUsb = 0x2091026bU;
 
 constexpr uint8_t kEsfGyroZ = 5;
@@ -85,6 +87,7 @@ struct ConfigurationValue
 
 ConfigurationValue booleanConfiguration(uint32_t key, bool value);
 ConfigurationValue u1Configuration(uint32_t key, uint8_t value);
+ConfigurationValue u2Configuration(uint32_t key, uint16_t value);
 std::vector<uint8_t> buildCfgValsetRam(const std::vector<ConfigurationValue> & values);
 std::vector<uint8_t> buildMonVerPoll();
 

@@ -157,6 +157,13 @@ ConfigurationValue u1Configuration(uint32_t key, uint8_t value)
   return ConfigurationValue{key, {value}};
 }
 
+ConfigurationValue u2Configuration(uint32_t key, uint16_t value)
+{
+  // UBX e little-endian.
+  return ConfigurationValue{
+    key, {static_cast<uint8_t>(value & 0xFFU), static_cast<uint8_t>((value >> 8U) & 0xFFU)}};
+}
+
 std::vector<uint8_t> buildCfgValsetRam(const std::vector<ConfigurationValue> & values)
 {
   if (values.size() > 64U) {

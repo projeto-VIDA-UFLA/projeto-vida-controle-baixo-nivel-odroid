@@ -94,6 +94,7 @@ private:
   int reconnect_interval_ms_{1000};
   int configuration_ack_timeout_ms_{2000};
   int priority_navigation_rate_hz_{0};
+  int measurement_rate_ms_{1000};
   double correction_received_timeout_s_{10.0};
   bool disable_internal_sensor_fusion_{true};
   bool apply_receiver_configuration_{true};

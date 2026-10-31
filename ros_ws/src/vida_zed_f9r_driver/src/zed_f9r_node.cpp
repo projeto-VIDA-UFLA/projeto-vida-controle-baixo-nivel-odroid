@@ -99,6 +99,7 @@ void ZedF9rNode::declareAndReadParameters()
   declare_parameter<int>("reconnect_interval_ms", 1000);
   declare_parameter<int>("configuration_ack_timeout_ms", 2000);
   declare_parameter<int>("priority_navigation_rate_hz", 0);
+  declare_parameter<int>("measurement_rate_ms", 1000);
   declare_parameter<double>("correction_received_timeout_s", 10.0);
   declare_parameter<bool>("disable_internal_sensor_fusion", true);
   declare_parameter<bool>("apply_receiver_configuration", true);
@@ -119,6 +120,7 @@ void ZedF9rNode::declareAndReadParameters()
     get_parameter("configuration_ack_timeout_ms").as_int());
   priority_navigation_rate_hz_ = static_cast<int>(
     get_parameter("priority_navigation_rate_hz").as_int());
+  measurement_rate_ms_ = static_cast<int>(get_parameter("measurement_rate_ms").as_int());
   correction_received_timeout_s_ = get_parameter("correction_received_timeout_s").as_double();
   disable_internal_sensor_fusion_ = get_parameter("disable_internal_sensor_fusion").as_bool();
   apply_receiver_configuration_ = get_parameter("apply_receiver_configuration").as_bool();
@@ -137,6 +139,9 @@ void ZedF9rNode::declareAndReadParameters()
   }
   if (priority_navigation_rate_hz_ < 0 || priority_navigation_rate_hz_ > 30) {
     throw std::invalid_argument("priority_navigation_rate_hz deve estar entre 0 e 30 Hz");
+  }
+  if (measurement_rate_ms_ < 25 || measurement_rate_ms_ > 10000) {
+    throw std::invalid_argument("measurement_rate_ms deve estar entre 25 e 10000 ms");
   }
 }
 
@@ -233,9 +238,9 @@ void ZedF9rNode::handleAcknowledgement(const UbxFrame & frame, bool acknowledged
     RCLCPP_INFO(
       get_logger(),
       "UBX-CFG-VALSET confirmado (somente RAM); fusao interna=%s; "
-      "navegacao prioritaria=%d Hz",
+      "navegacao prioritaria=%d Hz; medicao a cada %d ms",
       disable_internal_sensor_fusion_ ? "desativada" : "ativada",
-      priority_navigation_rate_hz_);
+      priority_navigation_rate_hz_, measurement_rate_ms_);
   } else {
     RCLCPP_ERROR(
       get_logger(),
@@ -546,6 +551,8 @@ void ZedF9rNode::sendStartupRequests()
   values.push_back(
     u1Configuration(
       kCfgRateNavPrio, static_cast<uint8_t>(priority_navigation_rate_hz_)));
+  values.push_back(
+    u2Configuration(kCfgRateMeas, static_cast<uint16_t>(measurement_rate_ms_)));
   if (enable_rtcm_diagnostics_) {
     values.push_back(u1Configuration(kCfgMsgoutUbxRxmRtcmUsb, 1U));
   }

@@ -172,4 +172,19 @@ TEST(UbxProtocol, ConvertsNavCovFromNedToEnu)
   EXPECT_EQ(enu, expected);
 }
 
+TEST(UbxProtocol, SerializesMeasurementRateAsU2LittleEndian)
+{
+  const ConfigurationValue value = u2Configuration(kCfgRateMeas, 500U);
+  EXPECT_EQ(value.key, 0x30210001U);
+  ASSERT_EQ(value.value.size(), 2U);
+  EXPECT_EQ(value.value[0U], 0xF4U);  // 500 = 0x01F4
+  EXPECT_EQ(value.value[1U], 0x01U);
+
+  const std::vector<uint8_t> packet = buildCfgValsetRam({value});
+  UbxParser parser;
+  const std::vector<UbxFrame> frames = parser.feed(packet);
+  ASSERT_EQ(frames.size(), 1U);
+  ASSERT_EQ(frames[0U].payload.size(), 4U + 4U + 2U);  // cabecalho + chave + U2
+}
+
 }  // namespace vida_zed_f9r_driver

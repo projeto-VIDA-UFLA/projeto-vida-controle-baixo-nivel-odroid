@@ -123,6 +123,7 @@ o único proprietário de `/dev/vida_f9r`, rejeita blocos vazios e serializa RTC
 | `configuration_ack_timeout_ms` | `2000` | espera assíncrona por ACK/NAK |
 | `disable_internal_sensor_fusion` | `true` | grava `CFG-SFCORE-USE_SF=false` somente em RAM |
 | `priority_navigation_rate_hz` | `0` | `CFG-RATE-NAV_PRIO`; zero desativa o modo prioritário, faixa válida 0–30 Hz |
+| `measurement_rate_ms` | `1000` | `CFG-RATE-MEAS` (U2, ms): período da solução GNSS; `500` = 2 Hz, o máximo do ZED-F9R fora do modo prioritário. O receptor responde NAK se recusar |
 | `apply_receiver_configuration` | `true` | aplica `CFG-VALSET` no início/reconexão |
 | `publish_raw_imu` | `true` | publica `ESF-RAW` |
 | `publish_gnss` | `true` | publica fix e estado GNSS |
@@ -134,7 +135,7 @@ o único proprietário de `/dev/vida_f9r`, rejeita blocos vazios e serializa RTC
 | `imu_topic` | `/vida/sensors/imu/data_raw` | tópico da IMU bruta |
 | `rtcm_topic` | `/vida/sensors/gps/rtcm` | entrada RTCM |
 
-O mesmo `CFG-VALSET` contém `CFG-SFCORE-USE_SF` e `CFG-RATE-NAV_PRIO`, sempre com
+O mesmo `CFG-VALSET` contém `CFG-SFCORE-USE_SF`, `CFG-RATE-NAV_PRIO` e `CFG-RATE-MEAS`, sempre com
 `layers=0x01` (RAM): BBR e Flash nunca são selecionadas. A aplicação conjunta é validada por
 `UBX-ACK-ACK`; `UBX-ACK-NAK` e timeout são registrados sem parar a recepção. Um poll
 `UBX-MON-VER` registra software, hardware, `FWVER`, `PROTVER` e `MOD` a cada conexão.
