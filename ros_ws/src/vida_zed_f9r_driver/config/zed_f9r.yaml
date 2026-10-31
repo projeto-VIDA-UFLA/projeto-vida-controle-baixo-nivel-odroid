@@ -1,4 +1,7 @@
-zed_f9r_driver:
+# "/**" (qualquer no): o driver roda como /vida/zed_f9r_driver, e a chave antiga
+# "zed_f9r_driver" (sem o namespace) nao casava com ele, entao este arquivo era
+# ignorado e valiam os padroes do codigo (31/10, ao configurar 2 Hz).
+/**:
   ros__parameters:
     device: /dev/vida_f9r
     frame_id: f9r_link
