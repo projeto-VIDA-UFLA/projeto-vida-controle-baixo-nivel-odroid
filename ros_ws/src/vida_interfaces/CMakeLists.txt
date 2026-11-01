@@ -14,6 +14,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/DriveReference.msg"
   "msg/LogicalEnable.msg"
   "msg/SafetyStatus.msg"
+  "msg/BatteryStatus.msg"
   "msg/GnssStatus.msg"
   "msg/EkfStatus.msg"
   "msg/StanleyStatus.msg"
