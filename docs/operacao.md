@@ -133,7 +133,7 @@ ponto de partida**, com RTK FIXED. Troque a data e o nome (`rota_5`).
 Fique parado uns 5 s depois do reset.
 ```bash
 ros2 service call /robot_state_ekf_node/reset std_srvs/srv/Trigger
-ros2 bag record -a -o ~/rosbag/rota_gravacao5
+ros2 bag record -a -o ~/projeto-vida/rosbag/rota_gravacao5
 ```
 
 **Terminal 2: o gravador da rota**, logo em seguida. Dirija a volta e pare no ponto de partida; Ctrl+C salva.
@@ -155,7 +155,7 @@ Depois, para rodar o Stanley nela: etapa 5b com `VIDA_PATH_FILE=/caminhos/2026-1
 ## Gravar um teste
 
 ```bash
-ros2 bag record -a -o ~/rosbag/<teste>_<data>
+ros2 bag record -a -o ~/projeto-vida/rosbag/<teste>_<data>
 ```
 
 O `-a` grava tudo, inclusive a bateria (`/vida/sensors/battery`). Sem o bag não dá para analisar o teste depois.
