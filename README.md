@@ -1,5 +1,7 @@
 **Operação completa do VIDA (Odroid, ESP32 e notebook, do zero ao Stanley): [docs/operacao.md](docs/operacao.md).**
 
+**Configuração do Linux do Odroid, para refazer num cartão novo: [docs/configuracao_odroid.md](docs/configuracao_odroid.md).**
+
 # Instruções para executar o programa
 
 # Instalação CMake
