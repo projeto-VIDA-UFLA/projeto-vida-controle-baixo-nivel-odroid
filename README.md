@@ -1,3 +1,5 @@
+**Operação (atualizar, gravar o firmware, ligar, mensagens): [docs/operacao.md](docs/operacao.md).**
+
 # Instruções para executar o programa
 
 # Instalação CMake
