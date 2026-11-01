@@ -3,8 +3,8 @@
 Tudo o que está configurado no Linux do Odroid do VIDA e não vem dos repositórios. Serve para
 reconfigurar o sistema num cartão novo, caso o backup se perca.
 
-Levantado em 01/11/2026, por SSH, a partir do sistema em uso e do histórico de comandos. Só leitura,
-sem `sudo`. **O passo a passo ainda não foi testado num cartão novo.**
+Levantado em 01/11/2026, por SSH, a partir do sistema em uso e do histórico de comandos, só com leitura.
+**O passo a passo ainda não foi testado num cartão novo.**
 
 > Senhas, credenciais NTRIP e chaves ficam de fora de propósito. Elas estão listadas em
 > [O que só existe no cartão](#o-que-só-existe-no-cartão).
@@ -95,9 +95,36 @@ arquivos em `/etc/netplan`.
 ```bash
 sudo nmcli con add type ethernet con-name vida-ponto-a-ponto ifname eth0 autoconnect yes \
   ipv4.method manual ipv4.addresses 192.168.10.1/24 ipv4.gateway 192.168.10.2 \
-  ipv4.dns "8.8.8.8 1.1.1.1" ipv4.route-metric 100 ipv6.method disabled
+  ipv4.dns "8.8.8.8 1.1.1.1" ipv4.route-metric 100 ipv4.may-fail no \
+  connection.autoconnect-priority 100 ipv6.method disabled
 sudo nmcli con up vida-ponto-a-ponto
 ```
+Isso gera o arquivo `/etc/NetworkManager/system-connections/vida-ponto-a-ponto.nmconnection`, que hoje está assim:
+```ini
+[connection]
+id=vida-ponto-a-ponto
+uuid=2d2386ce-3f0a-3d10-a610-9450b39d2cff
+type=ethernet
+autoconnect-priority=100
+interface-name=eth0
+
+[ethernet]
+
+[ipv4]
+address1=192.168.10.1/24,192.168.10.2
+dns=8.8.8.8;1.1.1.1;
+may-fail=false
+method=manual
+route-metric=100
+
+[ipv6]
+addr-gen-mode=eui64
+method=disabled
+
+[proxy]
+```
+Para criar o arquivo à mão, use dono root e permissão `600`, e rode `sudo nmcli connection load <arquivo>`.
+O `uuid` pode ser outro.
 
 | Conexão | Interface | Endereço | Observação |
 |---|---|---|---|
@@ -137,6 +164,26 @@ regra $OP FORWARD -i $LAN -o $WAN -s $REDE -j ACCEPT
 regra $OP FORWARD -i $WAN -o $LAN -d $REDE -m state --state RELATED,ESTABLISHED -j ACCEPT
 ```
 Sem esse script, o Odroid fica sem internet e sem correções RTK. Ele só aceita o Wi-Fi como saída.
+
+#### Prioridade automática: cabo primeiro, Wi-Fi como reserva
+Não há script fazendo a troca. Ela vem da **métrica das rotas**: com duas rotas padrão, o Linux usa a de
+menor métrica.
+
+| Conexão | `ipv4.route-metric` | Métrica efetiva | Papel |
+|---|---|---|---|
+| `vida-ponto-a-ponto` | `100` (definida à mão) | 100 | Preferida quando o cabo está conectado |
+| `LMT Local` | `-1` (padrão) | 600 (padrão do NetworkManager para Wi-Fi) | Assume quando a rota do cabo sai |
+
+As duas conexões têm `autoconnect` ligado, então podem ficar ativas ao mesmo tempo. Ao desconectar o cabo,
+a rota de `eth0` sai e o tráfego vai para o Wi-Fi. Ao conectar de novo, a rota volta e o cabo retoma a
+preferência. O `autoconnect-priority=100` só define qual perfil o NetworkManager escolhe primeiro.
+
+**Limitação:** a troca depende do link do cabo, não de haver internet. Com o cabo conectado e o notebook sem
+internet, o tráfego continua pelo cabo e não vai para o Wi-Fi. Não há verificação de conectividade
+configurada no NetworkManager.
+
+Para conferir com os dois conectados, `ip route` deve mostrar `metric 100` em `eth0` e `metric 600` em `wlan0`.
+Esse teste não foi feito no levantamento, porque o adaptador Wi-Fi não estava conectado.
 
 ### 7. Instalar o driver do Wi-Fi (opcional)
 O adaptador USB usa o driver `rtl8188fu/1.0`, instalado por DKMS. **A origem do código não aparece no
@@ -324,11 +371,13 @@ Nada disso foi alterado. São observações do levantamento:
   função `ros2()` e o arquivo vazio `.vida-ponto-a-ponto.nmconnection.swp`.
 - **Comentário da chave SSH:** é o texto de exemplo `seu-email@gmail.com`. Não afeta o funcionamento.
 
-## O que não foi conferido
-Exige `sudo`, que não foi usado neste levantamento:
+## Outros itens conferidos
 
-- `/media/boot/boot.ini` (parâmetros de boot);
-- o conteúdo de `vida-ponto-a-ponto.nmconnection` (os dados da rede vieram do `nmcli`);
-- as regras de `iptables`, e se o `sudoers` tem algo além do padrão.
-
-Se o `boot.ini` tiver sido alterado, vale salvar uma cópia dele com o backup.
+- **`iptables`:** só regras criadas pelo Docker e pelo Tailscale. O Odroid não tem regras próprias do projeto.
+- **`sudoers`:** o padrão. Em `/etc/sudoers.d` só há o `README`.
+- **Root:** sem `crontab`.
+- **NetworkManager:** sem scripts próprios em `dispatcher.d`. O `plugins=ifupdown,keyfile` e os demais
+  arquivos de `conf.d` são os da instalação. O Wi-Fi fica com `wifi.powersave = 3` (economia de energia ligada).
+- **Boot:** `/media/boot/boot.ini` e `config.ini` têm o formato da Hardkernel. O `boot.ini` traz
+  `net.ifnames=0`, que mantém o nome `eth0` usado na rede, e o UUID da partição `/`, próprio deste cartão.
+  Não comparei os arquivos com os originais da imagem, então vale salvar uma cópia dos dois com o backup.
