@@ -6,11 +6,11 @@ firmware, ligar, rodar o carro no manual ou no automático (Stanley) e gravar um
 > O mesmo arquivo está em `projeto-vida-controle-alto-nivel/docs/operacao.md` e em
 > `projeto-vida-controle-baixo-nivel-odroid/docs/operacao.md`. Ao alterar, copiar para o outro.
 
-| Máquina | Repositório | Branch de teste |
+| Máquina | Repositório | Branch |
 |---|---|---|
-| Odroid (`ssh odroid@192.168.10.1`) | `~/projeto-vida-firmware-esp32` | `pendente-teste/ajustes-pre-merge` |
-| Odroid | `~/projeto-vida-controle-baixo-nivel-odroid` | `pendente-teste/navegacao` |
-| Notebook | `~/projeto-vida/projeto-vida-controle-alto-nivel` | `pendente-teste/navegacao` |
+| Odroid (`ssh odroid@192.168.10.1`) | `~/projeto-vida-firmware-esp32` | `main` |
+| Odroid | `~/projeto-vida-controle-baixo-nivel-odroid` | `master` |
+| Notebook | `~/projeto-vida/projeto-vida-controle-alto-nivel` | `main` |
 
 > **Faça as etapas 1 a 3 no laboratório, com internet.** O `clean_microros`
 > baixa e recompila a libmicroros (alguns minutos), e os `docker compose build`
@@ -23,7 +23,7 @@ ssh odroid@192.168.10.1
 
 # Baixo nível (agente micro-ROS, GPS, EKF, segurança)
 cd ~/projeto-vida-controle-baixo-nivel-odroid
-git branch --show-current                   # pendente-teste/navegacao
+git branch --show-current                   # master
 git pull
 git submodule update --init --recursive     # robot_state_ekf
 docker compose build
@@ -37,14 +37,12 @@ local do Odroid), então não é preciso pará-lo à mão.
 
 ```bash
 cd ~/projeto-vida-firmware-esp32
-git branch --show-current                   # pendente-teste/ajustes-pre-merge
+git branch --show-current                   # main
 git pull
 
 # Só quando alguma .msg ou o colcon.meta mudou (ex.: BatteryStatus, 31/10).
 # Apaga e recompila a libmicroros: demora e precisa de internet.
 pio run -e vida_firmware -t clean_microros
-pio run -e vida_firmware
-
 pio run -e vida_firmware -t upload
 # Se o upload falhar ("Unable to verify flash chip connection"):
 #   pio run -e vida_firmware -t upload --upload-option="--baud=115200"
@@ -54,12 +52,10 @@ pio run -e vida_firmware -t upload
 
 ```bash
 cd ~/projeto-vida/projeto-vida-controle-alto-nivel
-git branch --show-current                   # pendente-teste/navegacao
+git branch --show-current                   # main
 git pull
 docker compose build
 
-# Mensagens no ROS do próprio notebook (para ros2 bag/topic fora do container)
-cd ros_ws && colcon build --packages-select vida_interfaces && cd ..
 ```
 
 ## 4. Ligar
