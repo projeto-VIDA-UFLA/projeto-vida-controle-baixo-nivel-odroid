@@ -1,4 +1,4 @@
-**Operação (atualizar, gravar o firmware, ligar, mensagens): [docs/operacao.md](docs/operacao.md).**
+**Operação completa do VIDA (Odroid, ESP32 e notebook, do zero ao Stanley): [docs/operacao.md](docs/operacao.md).**
 
 # Instruções para executar o programa
 
