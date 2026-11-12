@@ -132,7 +132,15 @@ O `uuid` pode ser outro.
 | `LMT Local` | `wlan0` | DHCP | Wi-Fi com WPA-PSK, conexão automática. Precisa do adaptador USB |
 | `tailscale0`, `docker0` | | | Criadas pelo Tailscale e pelo Docker |
 
-**No notebook** (`enp4s0` no cabo, `wlp0s20f3` no Wi-Fi), a conexão cabeada fica com IP manual
+**O notebook tem que usar `192.168.10.2`**: é o gateway e a saída para a internet configurados
+acima, de onde vêm as correções RTK. Qualquer outro IP no cabo deixa a Odroid sem internet.
+
+**Outros notebooks** não precisam da configuração manual abaixo: o
+`scripts/rede/preparar_computador.sh` do alto-nível instala o NAT e o comando `vida-rede`, e o
+perfil `192.168.10.2` só existe enquanto o botão **Conectar à Odroid** do painel (ou
+`vida-rede conectar`) está ativo. Roteiro em `projeto-vida-controle-alto-nivel/docs/novo_computador.md`.
+
+**No notebook principal** (`enp4s0` no cabo, `wlp0s20f3` no Wi-Fi), a conexão cabeada fica com IP manual
 `192.168.10.2/24`, e o NAT vem do script `/etc/NetworkManager/dispatcher.d/90-nat-odroid`
 (dono root, executável):
 ```bash

@@ -12,6 +12,11 @@ firmware, ligar, rodar o carro no manual ou no automático (Stanley) e gravar um
 | Odroid | `~/projeto-vida-controle-baixo-nivel-odroid` | `master` |
 | Notebook | `~/projeto-vida/projeto-vida-controle-alto-nivel` | `main` |
 
+> **Outro notebook:** a preparação de um computador novo (Docker, repositórios, rede até a
+> Odroid) está em `projeto-vida-controle-alto-nivel/docs/novo_computador.md`. Neste guia,
+> os comandos `ros2` direto no terminal valem para o notebook principal, que tem o ROS 2
+> instalado; nos outros, use o painel ou rode-os dentro do container (ver "Comandos úteis").
+
 > **Faça as etapas 1 a 3 no laboratório, com internet.** O `clean_microros`
 > baixa e recompila a libmicroros (alguns minutos), e os `docker compose build`
 > também baixam pacotes. Na pista, só as etapas 4 em diante.
@@ -75,6 +80,15 @@ docker compose logs -f micro_ros_agent      # Ctrl+C para sair; deve criar as en
 O `.env` com o usuário e a senha do NTRIP fica só no Odroid, ao lado do
 `docker-compose.yml` (está no `.gitignore`; nunca commitar).
 
+**Notebook: rede até a Odroid** (cabo entre os dois):
+- **Notebook principal:** a porta cabeada já tem o IP fixo `192.168.10.2` e o NAT; conecta
+  sozinho ao ligar o cabo.
+- **Outros notebooks:** botão **Conectar à Odroid** no topo do painel (ou `vida-rede conectar`).
+  Ao terminar, **Desconectar da Odroid**: a porta volta ao modo automático (DHCP). Reiniciar o
+  computador também volta.
+
+**Notebook: painel.** Abra **http://localhost:8080** (seção "Painel", abaixo).
+
 **Notebook** (em todos os terminais com `ros2` no host):
 ```bash
 source ~/projeto-vida/projeto-vida-controle-alto-nivel/ros_ws/install/setup.bash
@@ -86,6 +100,19 @@ ros2 topic list | grep /vida                       # tópicos do ESP32, inclusiv
 ros2 topic echo /vida/safety/status --field inhibit_flags   # 0 = liberado
 ros2 topic echo /vida/sensors/gps/status           # RTK FIXED antes de gravar rota ou entrar no automático
 ```
+
+## Painel
+
+Em **http://localhost:8080**, no próprio notebook (pelo Tailscale, só visualização). Mostra
+segurança, conexão ESP32 / Odroid, RTK, correções, EKF, bateria, o mapa com a rota e o
+rastro, as pendências para o automático, erros e eventos. Comandos:
+- **Iniciar / Parar o carro:** sobe o modo navegação com a rota selecionada (ou só o manual,
+  sem rota): substitui os comandos das etapas 5a e 5b;
+- **Rotas:** selecionar, renomear, apagar e **+ Nova rota** (grava pelos pontos do GPS);
+- **Bags:** **● Gravar bag** (todos os tópicos, em `~/projeto-vida/rosbag`) e reproduzir;
+- **Conectar / Desconectar da Odroid:** só nos notebooks preparados pelo `novo_computador.md`.
+
+A troca de modo (manual, automático, manobra, bancada) continua sendo pelo controle.
 
 ## 5a. Modo manual (gamepad)
 
@@ -112,6 +139,10 @@ docker compose stop navegacao && docker compose up -d ros_ws
 
 ## Comandos do gamepad
 
+**Conectar o controle (a cada uso):** segure **PS (Home) + Share** até a luz piscar rápido e,
+no Ubuntu, **Configurações → Bluetooth → "Wireless Controller"**. A reconexão automática não
+funciona de forma confiável no Linux; se o controle cair, repita.
+
 | Botão | Ação | Vibração |
 |---|---|---|
 | R2 / L2 | acelera (até 2,5 m/s) / freia | — |
@@ -126,7 +157,11 @@ docker compose stop navegacao && docker compose up -d ros_ws
 
 ## Gravar uma rota nova
 
-Com o Odroid ligado (etapa 4), o notebook no modo manual (5a) e o carro **parado no
+**Pelo painel** (qualquer notebook): aba **Rotas → + Nova rota**, conduza a volta com RTK FIXED
+e pare no ponto de partida; **Parar** salva em `~/projeto-vida/analises/<data>/`. Para ter
+também o bag, comece antes um **● Gravar bag** na aba Bags.
+
+**Pelo terminal** (notebook principal), com o Odroid ligado (etapa 4), o notebook no modo manual (5a) e o carro **parado no
 ponto de partida**, com RTK FIXED. Troque a data e o nome (`rota_5`).
 
 **Terminal 1: reiniciar o EKF e gravar o bag** (reserva, caso o CSV tenha problema).
@@ -154,6 +189,8 @@ Depois, para rodar o Stanley nela: etapa 5b com `VIDA_PATH_FILE=/caminhos/2026-1
 
 ## Gravar um teste
 
+Pelo painel: aba **Bags → ● Gravar bag**. Pelo terminal (notebook principal):
+
 ```bash
 ros2 bag record -a -o ~/projeto-vida/rosbag/<teste>_<data>
 ```
@@ -168,6 +205,16 @@ ros2 topic echo /vida/sensors/battery                                 # bateria 
 docker compose restart micro_ros_agent                                # no Odroid: agente de novo (ESP32 reconecta em ~5 s)
 docker compose logs -f ros2_ws                                        # no Odroid: GPS, EKF e segurança
 ```
+
+**Sem ROS 2 no Ubuntu** (notebooks preparados pelo `novo_computador.md`), os comandos `ros2`
+rodam dentro do container do carro (`ros_ws` no manual, `ros_ws_navegacao` na navegação),
+com o carro iniciado:
+
+```bash
+docker exec -it ros_ws bash -lc 'source /opt/ros/humble/setup.bash && source /vida_ws/install/setup.bash && ros2 topic echo /vida/safety/status --field inhibit_flags'
+```
+
+Bags gravados assim ficam dentro do container: use o painel para gravar.
 
 ## Mensagens (`vida_interfaces`)
 
@@ -202,4 +249,8 @@ gravar em bag. A corrente sai NaN até o shunt ser configurado no firmware.
 | ESP32 não aparece depois de reiniciar o agente | Esperar ~5 s (o agente espera 2 s antes de abrir a serial); se não voltar, apertar o reset do ESP32 |
 | Flag 4096, 512 ou 1024 | Falha retida: desligar e religar o enable físico para rearmar |
 | Automático recusado (6 pulsos) | Ver o motivo em `docker logs ros_ws_navegacao` (distância do início, RTK, ESP32 bloqueado) |
+| Painel sem o botão **Conectar à Odroid** | Notebook principal: normal (rede própria). Outros: `systemctl status vida-rede` e `./preparar_computador.sh --verificar` (alto-nível, `scripts/rede`) |
+| "Mais de uma porta com cabo" ao conectar | Deixe só o cabo da Odroid, ou `vida-rede conectar <interface>` |
+| Conectou, mas a Odroid não responde | Odroid ligada? Cabo certo? `vida-rede status` |
+| Controle não conecta ou caiu | PS + Share até piscar e conectar em Configurações → Bluetooth |
 | Bag sem `/vida/sensors/battery` | `colcon build --packages-select vida_interfaces` no notebook (etapa 3) e `source` de novo |
