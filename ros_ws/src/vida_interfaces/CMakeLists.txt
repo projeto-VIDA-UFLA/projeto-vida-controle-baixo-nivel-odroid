@@ -19,6 +19,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/EkfStatus.msg"
   "msg/StanleyStatus.msg"
   "msg/NavigationMode.msg"
+  "msg/NavPvt.msg"
   DEPENDENCIES builtin_interfaces
 )
 

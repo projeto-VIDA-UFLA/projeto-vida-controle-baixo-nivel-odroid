@@ -47,6 +47,14 @@ int32_t readI4(const std::vector<uint8_t> & data, std::size_t offset)
   return signed_value;
 }
 
+int16_t readI2(const std::vector<uint8_t> & data, std::size_t offset)
+{
+  const uint16_t unsigned_value = readU2(data, offset);
+  int16_t signed_value = 0;
+  std::memcpy(&signed_value, &unsigned_value, sizeof(signed_value));
+  return signed_value;
+}
+
 float readR4(const std::vector<uint8_t> & data, std::size_t offset)
 {
   const uint32_t bits = readU4(data, offset);
@@ -219,12 +227,38 @@ std::optional<NavPvt> parseNavPvt(const std::vector<uint8_t> & payload)
   }
   NavPvt result;
   result.i_tow_ms = readU4(payload, 0U);
+  result.year = readU2(payload, 4U);
+  result.month = payload[6U];
+  result.day = payload[7U];
+  result.hour = payload[8U];
+  result.minute = payload[9U];
+  result.second = payload[10U];
+  result.valid = payload[11U];
+  result.time_accuracy_ns = readU4(payload, 12U);
+  result.nano_ns = readI4(payload, 16U);
   result.fix_type = payload[20U];
   result.flags = payload[21U];
+  result.flags2 = payload[22U];
   result.num_sv = payload[23U];
+  result.longitude_1e7_deg = readI4(payload, 24U);
+  result.latitude_1e7_deg = readI4(payload, 28U);
+  result.ellipsoid_height_mm = readI4(payload, 32U);
+  result.msl_height_mm = readI4(payload, 36U);
   result.horizontal_accuracy_mm = readU4(payload, 40U);
   result.vertical_accuracy_mm = readU4(payload, 44U);
+  result.velocity_north_mm_s = readI4(payload, 48U);
+  result.velocity_east_mm_s = readI4(payload, 52U);
+  result.velocity_down_mm_s = readI4(payload, 56U);
+  result.ground_speed_mm_s = readI4(payload, 60U);
+  result.heading_of_motion_1e5_deg = readI4(payload, 64U);
+  result.speed_accuracy_mm_s = readU4(payload, 68U);
+  result.heading_accuracy_1e5_deg = readU4(payload, 72U);
+  result.position_dop_1e2 = readU2(payload, 76U);
   result.flags3 = readU2(payload, 78U);
+  std::copy_n(payload.begin() + 80, result.reserved0.size(), result.reserved0.begin());
+  result.heading_of_vehicle_1e5_deg = readI4(payload, 84U);
+  result.magnetic_declination_1e2_deg = readI2(payload, 88U);
+  result.magnetic_accuracy_1e2_deg = readU2(payload, 90U);
   return result;
 }
 

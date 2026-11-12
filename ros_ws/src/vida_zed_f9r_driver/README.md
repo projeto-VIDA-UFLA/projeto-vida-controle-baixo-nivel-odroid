@@ -100,6 +100,7 @@ variáveis.
 |---|---|---|---|
 | saída | `/vida/sensors/gps/fix` | `sensor_msgs/msg/NavSatFix` | `NAV-HPPOSLLH`, estado de `NAV-PVT` e covariância `NAV-COV`/acurácias |
 | saída | `/vida/sensors/gps/status` | `vida_interfaces/msg/GnssStatus` | fix, RTK, satélites, acurácias e correções |
+| saída | `/vida/sensors/gps/nav_pvt` | `vida_interfaces/msg/NavPvt` | `NAV-PVT` completo, campos e unidades nativos (data/hora UTC, posição, velocidade NED, rumo, acurácias, DOP e flags) |
 | saída | `/vida/sensors/imu/data_raw` | `sensor_msgs/msg/Imu` | acelerômetro e giroscópio de `ESF-RAW` |
 | entrada | `/vida/sensors/gps/rtcm` | `std_msgs/msg/UInt8MultiArray` | bytes RTCM sem alteração |
 
@@ -127,11 +128,13 @@ o único proprietário de `/dev/vida_f9r`, rejeita blocos vazios e serializa RTC
 | `apply_receiver_configuration` | `true` | aplica `CFG-VALSET` no início/reconexão |
 | `publish_raw_imu` | `true` | publica `ESF-RAW` |
 | `publish_gnss` | `true` | publica fix e estado GNSS |
+| `publish_nav_pvt` | `true` | publica o `NAV-PVT` completo; exige `publish_gnss` |
 | `enable_rtcm_diagnostics` | `true` | habilita `UBX-RXM-RTCM` na saída USB somente em RAM |
 | `correction_received_timeout_s` | `10.0` | validade local do último RTCM confirmado |
 | `imu_axis_mapping` | `[1, 2, 3]` | permutação assinada dos eixos nativos para ROS |
 | `gps_fix_topic` | `/vida/sensors/gps/fix` | tópico de fix |
 | `gps_status_topic` | `/vida/sensors/gps/status` | tópico de estado |
+| `gps_nav_pvt_topic` | `/vida/sensors/gps/nav_pvt` | tópico do `NAV-PVT` completo |
 | `imu_topic` | `/vida/sensors/imu/data_raw` | tópico da IMU bruta |
 | `rtcm_topic` | `/vida/sensors/gps/rtcm` | entrada RTCM |
 

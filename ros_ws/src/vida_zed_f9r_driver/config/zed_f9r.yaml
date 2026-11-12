@@ -17,10 +17,13 @@
     apply_receiver_configuration: true
     publish_raw_imu: true
     publish_gnss: true
+    # UBX-NAV-PVT completo (vida_interfaces/msg/NavPvt); exige publish_gnss.
+    publish_nav_pvt: true
     enable_rtcm_diagnostics: true
     # Cada item seleciona um eixo nativo (1=x, 2=y, 3=z); sinal negativo inverte-o.
     imu_axis_mapping: [1, 2, 3]
     gps_fix_topic: /vida/sensors/gps/fix
     gps_status_topic: /vida/sensors/gps/status
+    gps_nav_pvt_topic: /vida/sensors/gps/nav_pvt
     imu_topic: /vida/sensors/imu/data_raw
     rtcm_topic: /vida/sensors/gps/rtcm

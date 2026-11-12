@@ -51,6 +51,10 @@ ZedF9rNode::ZedF9rNode(const rclcpp::NodeOptions & options)
       fix_topic, rclcpp::SensorDataQoS());
     status_publisher_ = create_publisher<vida_interfaces::msg::GnssStatus>(
       status_topic, rclcpp::QoS(10));
+    if (publish_nav_pvt_) {
+      nav_pvt_publisher_ = create_publisher<vida_interfaces::msg::NavPvt>(
+        get_parameter("gps_nav_pvt_topic").as_string(), rclcpp::QoS(10));
+    }
   }
   if (publish_raw_imu_) {
     imu_publisher_ = create_publisher<sensor_msgs::msg::Imu>(
@@ -105,10 +109,12 @@ void ZedF9rNode::declareAndReadParameters()
   declare_parameter<bool>("apply_receiver_configuration", true);
   declare_parameter<bool>("publish_raw_imu", true);
   declare_parameter<bool>("publish_gnss", true);
+  declare_parameter<bool>("publish_nav_pvt", true);
   declare_parameter<bool>("enable_rtcm_diagnostics", true);
   declare_parameter<std::vector<int64_t>>("imu_axis_mapping", {1, 2, 3});
   declare_parameter<std::string>("gps_fix_topic", "/vida/sensors/gps/fix");
   declare_parameter<std::string>("gps_status_topic", "/vida/sensors/gps/status");
+  declare_parameter<std::string>("gps_nav_pvt_topic", "/vida/sensors/gps/nav_pvt");
   declare_parameter<std::string>("imu_topic", "/vida/sensors/imu/data_raw");
   declare_parameter<std::string>("rtcm_topic", "/vida/sensors/gps/rtcm");
 
@@ -126,6 +132,7 @@ void ZedF9rNode::declareAndReadParameters()
   apply_receiver_configuration_ = get_parameter("apply_receiver_configuration").as_bool();
   publish_raw_imu_ = get_parameter("publish_raw_imu").as_bool();
   publish_gnss_ = get_parameter("publish_gnss").as_bool();
+  publish_nav_pvt_ = get_parameter("publish_nav_pvt").as_bool();
   enable_rtcm_diagnostics_ = get_parameter("enable_rtcm_diagnostics").as_bool();
   validateAxisMapping(get_parameter("imu_axis_mapping").as_integer_array());
 
@@ -263,6 +270,7 @@ void ZedF9rNode::handleNavPvt(const std::vector<uint8_t> & payload)
     epoch.has_stamp = true;
   }
   epoch.pvt = parsed;
+  publishNavPvt(parsed.value(), epoch.reception_stamp);
   publishGnssStatus(epoch);
   if (parsed->fix_type == 4U) {
     RCLCPP_WARN_THROTTLE(
@@ -428,6 +436,51 @@ void ZedF9rNode::publishGnssStatus(PendingEpoch & epoch)
   }
   status_publisher_->publish(message);
   epoch.status_published = true;
+}
+
+void ZedF9rNode::publishNavPvt(
+  const NavPvt & pvt, const builtin_interfaces::msg::Time & stamp)
+{
+  if (!nav_pvt_publisher_) {
+    return;
+  }
+  vida_interfaces::msg::NavPvt message;
+  message.timestamp = stamp;
+  message.frame_id = frame_id_;
+  message.i_tow = pvt.i_tow_ms;
+  message.year = pvt.year;
+  message.month = pvt.month;
+  message.day = pvt.day;
+  message.hour = pvt.hour;
+  message.min = pvt.minute;
+  message.sec = pvt.second;
+  message.valid = pvt.valid;
+  message.t_acc = pvt.time_accuracy_ns;
+  message.nano = pvt.nano_ns;
+  message.fix_type = pvt.fix_type;
+  message.flags = pvt.flags;
+  message.flags2 = pvt.flags2;
+  message.num_sv = pvt.num_sv;
+  message.lon = pvt.longitude_1e7_deg;
+  message.lat = pvt.latitude_1e7_deg;
+  message.height = pvt.ellipsoid_height_mm;
+  message.h_msl = pvt.msl_height_mm;
+  message.h_acc = pvt.horizontal_accuracy_mm;
+  message.v_acc = pvt.vertical_accuracy_mm;
+  message.vel_n = pvt.velocity_north_mm_s;
+  message.vel_e = pvt.velocity_east_mm_s;
+  message.vel_d = pvt.velocity_down_mm_s;
+  message.g_speed = pvt.ground_speed_mm_s;
+  message.head_mot = pvt.heading_of_motion_1e5_deg;
+  message.s_acc = pvt.speed_accuracy_mm_s;
+  message.head_acc = pvt.heading_accuracy_1e5_deg;
+  message.p_dop = pvt.position_dop_1e2;
+  message.flags3 = pvt.flags3;
+  message.reserved0 = pvt.reserved0;
+  message.head_veh = pvt.heading_of_vehicle_1e5_deg;
+  message.mag_dec = pvt.magnetic_declination_1e2_deg;
+  message.mag_acc = pvt.magnetic_accuracy_1e2_deg;
+  nav_pvt_publisher_->publish(message);
 }
 
 void ZedF9rNode::publishGnssFixIfComplete(uint32_t i_tow_ms)

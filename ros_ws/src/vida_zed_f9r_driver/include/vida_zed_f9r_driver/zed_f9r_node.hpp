@@ -31,6 +31,7 @@
 #include "sensor_msgs/msg/nav_sat_fix.hpp"
 #include "std_msgs/msg/u_int8_multi_array.hpp"
 #include "vida_interfaces/msg/gnss_status.hpp"
+#include "vida_interfaces/msg/nav_pvt.hpp"
 
 #include "vida_zed_f9r_driver/serial_transport.hpp"
 #include "vida_zed_f9r_driver/ubx_parser.hpp"
@@ -78,6 +79,7 @@ private:
   void handleMonVersion(const std::vector<uint8_t> & payload);
   void handleRxmRtcm(const std::vector<uint8_t> & payload);
   void publishGnssStatus(PendingEpoch & epoch);
+  void publishNavPvt(const NavPvt & pvt, const builtin_interfaces::msg::Time & stamp);
   void publishGnssFixIfComplete(uint32_t i_tow_ms);
   void publishImuSample(const ImuSample & sample);
   void onRtcm(const std_msgs::msg::UInt8MultiArray::SharedPtr message);
@@ -100,6 +102,7 @@ private:
   bool apply_receiver_configuration_{true};
   bool publish_raw_imu_{true};
   bool publish_gnss_{true};
+  bool publish_nav_pvt_{true};
   bool enable_rtcm_diagnostics_{true};
   std::array<int, 3> imu_axis_mapping_{{1, 2, 3}};
 
@@ -120,6 +123,7 @@ private:
 
   rclcpp::Publisher<sensor_msgs::msg::NavSatFix>::SharedPtr fix_publisher_;
   rclcpp::Publisher<vida_interfaces::msg::GnssStatus>::SharedPtr status_publisher_;
+  rclcpp::Publisher<vida_interfaces::msg::NavPvt>::SharedPtr nav_pvt_publisher_;
   rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_publisher_;
   rclcpp::Subscription<std_msgs::msg::UInt8MultiArray>::SharedPtr rtcm_subscription_;
   rclcpp::TimerBase::SharedPtr acknowledgement_timer_;

@@ -95,6 +95,85 @@ TEST(UbxProtocol, ExtractsCarrierSolutionFromNavPvt)
   EXPECT_FLOAT_EQ(correctionAgeLowerBoundSeconds(result->correctionAgeCode()), 2.0F);
 }
 
+TEST(UbxProtocol, ParsesEveryNavPvtField)
+{
+  std::vector<uint8_t> payload(92U, 0U);
+  putU4(payload, 0U, 345678U);
+  payload[4U] = 0xeaU;  // 2026
+  payload[5U] = 0x07U;
+  payload[6U] = 11U;
+  payload[7U] = 12U;
+  payload[8U] = 13U;
+  payload[9U] = 14U;
+  payload[10U] = 15U;
+  payload[11U] = 0x07U;
+  putU4(payload, 12U, 31U);
+  putI4(payload, 16U, -123456);
+  payload[20U] = 3U;
+  payload[21U] = 0x83U;
+  payload[22U] = 0xe0U;
+  payload[23U] = 27U;
+  putI4(payload, 24U, -471234567);
+  putI4(payload, 28U, -229876543);
+  putI4(payload, 32U, 850123);
+  putI4(payload, 36U, 856789);
+  putU4(payload, 40U, 14U);
+  putU4(payload, 44U, 21U);
+  putI4(payload, 48U, -1500);
+  putI4(payload, 52U, 2500);
+  putI4(payload, 56U, -30);
+  putI4(payload, 60U, 2915);
+  putI4(payload, 64U, 12345678);
+  putU4(payload, 68U, 45U);
+  putU4(payload, 72U, 98765U);
+  payload[76U] = 0x7bU;  // 123
+  payload[78U] = 0x06U;
+  payload[80U] = 1U;
+  payload[83U] = 4U;
+  putI4(payload, 84U, -4500000);
+  payload[88U] = 0x38U;  // -2248
+  payload[89U] = 0xf7U;
+  payload[90U] = 0x2cU;  // 300
+  payload[91U] = 0x01U;
+
+  const std::optional<NavPvt> result = parseNavPvt(payload);
+  ASSERT_TRUE(result.has_value());
+  EXPECT_EQ(result->i_tow_ms, 345678U);
+  EXPECT_EQ(result->year, 2026U);
+  EXPECT_EQ(result->month, 11U);
+  EXPECT_EQ(result->day, 12U);
+  EXPECT_EQ(result->hour, 13U);
+  EXPECT_EQ(result->minute, 14U);
+  EXPECT_EQ(result->second, 15U);
+  EXPECT_EQ(result->valid, 0x07U);
+  EXPECT_EQ(result->time_accuracy_ns, 31U);
+  EXPECT_EQ(result->nano_ns, -123456);
+  EXPECT_EQ(result->fix_type, 3U);
+  EXPECT_EQ(result->flags, 0x83U);
+  EXPECT_EQ(result->flags2, 0xe0U);
+  EXPECT_EQ(result->num_sv, 27U);
+  EXPECT_EQ(result->longitude_1e7_deg, -471234567);
+  EXPECT_EQ(result->latitude_1e7_deg, -229876543);
+  EXPECT_EQ(result->ellipsoid_height_mm, 850123);
+  EXPECT_EQ(result->msl_height_mm, 856789);
+  EXPECT_EQ(result->horizontal_accuracy_mm, 14U);
+  EXPECT_EQ(result->vertical_accuracy_mm, 21U);
+  EXPECT_EQ(result->velocity_north_mm_s, -1500);
+  EXPECT_EQ(result->velocity_east_mm_s, 2500);
+  EXPECT_EQ(result->velocity_down_mm_s, -30);
+  EXPECT_EQ(result->ground_speed_mm_s, 2915);
+  EXPECT_EQ(result->heading_of_motion_1e5_deg, 12345678);
+  EXPECT_EQ(result->speed_accuracy_mm_s, 45U);
+  EXPECT_EQ(result->heading_accuracy_1e5_deg, 98765U);
+  EXPECT_EQ(result->position_dop_1e2, 123U);
+  EXPECT_EQ(result->flags3, 0x06U);
+  EXPECT_EQ(result->reserved0[0U], 1U);
+  EXPECT_EQ(result->reserved0[3U], 4U);
+  EXPECT_EQ(result->heading_of_vehicle_1e5_deg, -4500000);
+  EXPECT_EQ(result->magnetic_declination_1e2_deg, -2248);
+  EXPECT_EQ(result->magnetic_accuracy_1e2_deg, 300U);
+}
+
 TEST(UbxProtocol, RejectsDeadReckoningPositionAsPureGnss)
 {
   NavPvt pvt;

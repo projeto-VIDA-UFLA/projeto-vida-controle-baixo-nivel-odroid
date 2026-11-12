@@ -91,15 +91,42 @@ ConfigurationValue u2Configuration(uint32_t key, uint16_t value);
 std::vector<uint8_t> buildCfgValsetRam(const std::vector<ConfigurationValue> & values);
 std::vector<uint8_t> buildMonVerPoll();
 
+// UBX-NAV-PVT completo (92 bytes), nas unidades nativas do receptor.
 struct NavPvt
 {
   uint32_t i_tow_ms{0};
+  uint16_t year{0};
+  uint8_t month{0};
+  uint8_t day{0};
+  uint8_t hour{0};
+  uint8_t minute{0};
+  uint8_t second{0};
+  uint8_t valid{0};
+  uint32_t time_accuracy_ns{0};
+  int32_t nano_ns{0};
   uint8_t fix_type{0};
   uint8_t flags{0};
+  uint8_t flags2{0};
   uint8_t num_sv{0};
+  int32_t longitude_1e7_deg{0};
+  int32_t latitude_1e7_deg{0};
+  int32_t ellipsoid_height_mm{0};
+  int32_t msl_height_mm{0};
   uint32_t horizontal_accuracy_mm{0};
   uint32_t vertical_accuracy_mm{0};
+  int32_t velocity_north_mm_s{0};
+  int32_t velocity_east_mm_s{0};
+  int32_t velocity_down_mm_s{0};
+  int32_t ground_speed_mm_s{0};
+  int32_t heading_of_motion_1e5_deg{0};
+  uint32_t speed_accuracy_mm_s{0};
+  uint32_t heading_accuracy_1e5_deg{0};
+  uint16_t position_dop_1e2{0};
   uint16_t flags3{0};
+  std::array<uint8_t, 4> reserved0{};
+  int32_t heading_of_vehicle_1e5_deg{0};
+  int16_t magnetic_declination_1e2_deg{0};
+  uint16_t magnetic_accuracy_1e2_deg{0};
 
   bool gnssFixOk() const;
   bool differentialSolution() const;
