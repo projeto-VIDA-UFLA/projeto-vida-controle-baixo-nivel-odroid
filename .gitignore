@@ -1,8 +1,13 @@
 .env
 
-ros_ws/build/
-ros_ws/install/
-ros_ws/log/
+# Artefatos do colcon (em qualquer nível: raiz ou ros_ws/)
+build/
+install/
+log/
+
+.vscode/browse.vc.db
+.vscode/browse.vc.db-shm
+.vscode/browse.vc.db-wal
 
 __pycache__/
 *.pyc
