@@ -9,7 +9,7 @@ Levantado em 01/11/2026, por SSH, a partir do sistema em uso e do histórico de 
 > Senhas, credenciais NTRIP e chaves ficam de fora de propósito. Elas estão listadas em
 > [O que só existe no cartão](#o-que-só-existe-no-cartão).
 
-Para operar o carro no dia a dia, veja [operacao.md](operacao.md).
+Para operar o carro no dia a dia, veja a página do projeto: [projeto-VIDA-UFLA](https://github.com/projeto-VIDA-UFLA).
 
 ## Resumo do sistema
 
@@ -138,7 +138,7 @@ acima, de onde vêm as correções RTK. Qualquer outro IP no cabo deixa a Odroid
 **Outros notebooks** não precisam da configuração manual abaixo: o
 `scripts/rede/preparar_computador.sh` do alto-nível instala o NAT e o comando `vida-rede`, e o
 perfil `192.168.10.2` só existe enquanto o botão **Conectar à Odroid** do painel (ou
-`vida-rede conectar`) está ativo. Roteiro em `projeto-vida-controle-alto-nivel/docs/novo_computador.md`.
+`vida-rede conectar`) está ativo. Roteiro na página do projeto: [projeto-VIDA-UFLA](https://github.com/projeto-VIDA-UFLA).
 
 **No notebook principal** (`enp4s0` no cabo, `wlp0s20f3` no Wi-Fi), a conexão cabeada fica com IP manual
 `192.168.10.2/24`, e o NAT vem do script `/etc/NetworkManager/dispatcher.d/90-nat-odroid`
@@ -209,7 +209,8 @@ sudo tailscale set --accept-dns=false
 ```
 O `--accept-dns=false` é necessário para o DNS continuar sendo o da conexão cabeada.
 
-### 9. Configurar o Git e o acesso ao GitHub
+### 9. Configurar o Git e o acesso ao GitHub (opcional)
+Os repositórios são públicos, então a chave SSH só é necessária para enviar alterações.
 ```bash
 git config --global user.name "Nucleo-LMT"
 git config --global user.email "<e-mail da conta do núcleo>"
@@ -228,14 +229,10 @@ Host github.com
 ### 10. Clonar os repositórios
 ```bash
 cd ~
-git clone git@github.com:NLMT-auto/projeto-vida-firmware-esp32.git
-git clone git@github.com:NLMT-auto/projeto-vida-controle-baixo-nivel-odroid.git
-cd ~/projeto-vida-controle-baixo-nivel-odroid
-git submodule update --init --recursive
+git clone https://github.com/projeto-VIDA-UFLA/projeto-vida-firmware-esp32.git
+git clone https://github.com/projeto-VIDA-UFLA/projeto-vida-controle-baixo-nivel-odroid.git
 ```
-O submódulo `robot_state_ekf` vem do repositório do Danilo (`danilo-alima/robot_state_ekf`), que é
-privado. A conta do Odroid precisa de acesso de leitura, e o commit usado hoje (`eaadcd3`) está na branch
-`pendente-teste/navegacao` de lá.
+O EKF (`robot_state_ekf`) já vem dentro do repositório da Odroid.
 
 ### 11. Criar o `.env`
 Em `~/projeto-vida-controle-baixo-nivel-odroid/.env` (fora do Git, nunca commitar):
@@ -329,8 +326,8 @@ pio run -e vida_firmware -t upload
 cd ~/projeto-vida-controle-baixo-nivel-odroid
 docker compose up -d
 ```
-Os containers usam `restart: unless-stopped` e o serviço `docker` fica habilitado, então voltam sozinhos
-no boot, a não ser que tenham sido parados à mão.
+Os containers usam `restart: always` e o serviço `docker` fica habilitado, então sobem sozinhos no boot
+e voltam em caso de falha.
 
 | Imagem | Origem |
 |---|---|
@@ -371,8 +368,6 @@ Não há tarefas no `crontab` do usuário nem serviços próprios do projeto no 
 ## Pontos para revisar
 Nada disso foi alterado. São observações do levantamento:
 
-- **`PermitRootLogin yes`** no `/etc/ssh/sshd_config`, com SSH por senha. Vale restringir, porque o
-  Odroid fica acessível pelo Tailscale.
 - **`unattended-upgrades` ligado:** o sistema se atualiza sozinho, e uma atualização pode mudar algo perto
   de um teste. O kernel 4.9 fica em uso, mas o DKMS mantém compilações para kernels 5.15 instalados.
 - **Sobras:** imagens `vida-ros-ws` e `vida-ros-tools`, container `sweet_mccarthy`, regra `vida_ublox`,
