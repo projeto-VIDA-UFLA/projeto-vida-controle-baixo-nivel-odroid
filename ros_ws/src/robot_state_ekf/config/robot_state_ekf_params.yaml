@@ -1,0 +1,85 @@
+robot_state_ekf_node:
+  ros__parameters:
+    # ---------------- Geometria do veiculo ----------------
+    wheelbase: 1.125           # distancia entre eixos [m]
+    phi_max_deg: 35.0          # limite fisico do angulo de esterçamento [graus]
+
+    # ---------------- Taxas ----------------
+    ekf_rate_hz: 50.0          # predicao/correcao (casar com a taxa de encoders/steering)
+    publish_rate_hz: 50.0      # publicacao do estado estimado (Stanley usa o odom)
+
+    # ---------------- Topicos de entrada ----------------
+    gps_topic: "/vida/sensors/gps/fix"
+    imu_topic: "/vida/sensors/imu/data_raw"
+    encoders_topic: "/vida/sensors/encoders"
+    steering_topic: "/vida/sensors/steering"
+
+    # ---------------- Topicos de saida ----------------
+    odom_topic: "robot_state/odom"
+    steering_angle_topic: "robot_state/steering_angle"
+    odom_frame_id: "odom"
+    base_frame_id: "base_link"
+    publish_tf: true
+
+    # ---------------- GNSS ----------------
+    use_gps: true
+    gps_init_samples: 10       # numero de fixes usados para fixar a origem local (media) no boot
+    gps_reset_init_samples: 3  # idem apos o servico ~/reset (entrada no modo automatico)
+    gps_status_topic: "/vida/sensors/gps/status"
+    # O receptor informa hAcc de centimetros mesmo sem RTK FIXED: piso da incerteza do fix.
+    gps_float_sigma_m: 0.3     # RTK FLOAT
+    gps_no_rtk_sigma_m: 1.0    # sem RTK (sem solucao: o fix e ignorado)
+    gps_default_sigma_m: 2.0   # usado se position_covariance_type == UNKNOWN
+
+    # ---------------- IMU (giroscopio para integrar theta) ----------------
+    use_imu_heading: true
+    imu_timeout_sec: 0.5       # acima disso, cai para o modelo cinematico puro (v*sin(phi)/L)
+    imu_yaw_rate_sigma: 0.02   # usado se angular_velocity_covariance vier -1 ou 0 (o ZED-F9R publica 0)
+
+    # ---------------- Bias do giroscopio (6o estado do EKF) ----------------
+    # theta_dot = w_medido - b. Parado (encoders), uma pseudo-medida "giro zero" atualiza b e theta
+    # nao e integrado. Antes da inicializacao, a media do giroscopio parado da o b inicial.
+    estimate_gyro_bias: true
+    gyro_bias_initial_sigma: 0.01      # rad/s, incerteza de b sem calibracao inicial
+    gyro_bias_calibrated_sigma: 0.0005 # rad/s, piso da incerteza apos a media inicial parado
+    gyro_bias_random_walk: 2.0e-4      # rad/s/sqrt(s), quanto b pode variar com o tempo (temperatura)
+    stationary_speed_threshold_mps: 0.02
+    stationary_min_time_sec: 0.5
+    encoders_timeout_sec: 0.5          # encoders mais velhos que isso nao confirmam "parado"
+    gyro_bias_topic: "robot_state/gyro_bias"
+
+    # Status (fase, origem do heading, origem lat/lon) publicado em publish_rate_hz
+    status_topic: "robot_state/status"
+
+    # ---------------- Encoders / esterçamento (CAN no original) ----------------
+    # "front_average"  - media dos encoders dianteiros (recomendado: veiculo e' tracao traseira,
+    #                    entao o encoder traseiro sofre derrapagem sob torque; as rodas dianteiras
+    #                    sao passivas e o pequeno erro de raio ao esterçar e' bem menor)
+    # "front_left" / "front_right"
+    # "rear"           - encoder traseiro
+    velocity_source: "front_average"
+    steering_sigma_rad: 0.02
+    velocity_sigma_mps: 0.05
+
+    # ---------------- Pose inicial ----------------
+    pose_from_file: false     # true: usa lat/lon/heading abaixo direto; false: espera o GNSS
+    initial_latitude_deg: 0.0
+    initial_longitude_deg: 0.0
+    initial_heading_deg: 0.0   # usado se pose_from_file=true, ou como fallback do heading (ver abaixo)
+
+    # Sem bussola/heading absoluto, initial_heading_deg raramente bate com a orientacao real do
+    # veiculo. Com estimate_heading_from_gps=true (recomendado), apos fixar a origem GNSS o no
+    # espera o veiculo andar heading_init_min_distance_m para estimar o heading pelo rumo do GPS
+    # (atan2 do deslocamento entre dois fixes) antes de iniciar o EKF. Se o veiculo nao andar o
+    # suficiente em heading_init_timeout_sec (ex: ligou parado), cai para initial_heading_deg.
+    estimate_heading_from_gps: true
+    heading_init_min_distance_m: 2.0
+    heading_init_timeout_sec: 20.0
+    heading_init_require_fixed: true  # rumo do GPS so com RTK FIXED (com status disponivel)
+
+    # ---------------- Ruido de processo (variancia por ciclo de predicao) ----------------
+    model_noise_x: 0.01
+    model_noise_y: 0.01
+    model_noise_theta: 0.001   # so' usado quando a IMU esta indisponivel (fallback cinematico)
+    model_noise_phi: 0.001
+    model_noise_v: 0.01
